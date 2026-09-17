@@ -4,7 +4,7 @@
       v-sound
       :aria-label="`Switch to ${nextTheme} mode`"
       :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
-      color="primary"
+      color="neutral"
       variant="ghost"
       size="md"
       class="rounded-full cursor-pointer"
@@ -14,7 +14,7 @@
       <UButton
         aria-label="Loading theme toggle"
         icon="i-lucide-sun"
-        color="primary"
+        color="neutral"
         variant="ghost"
         size="md"
         class="rounded-full pointer-events-none"
@@ -24,7 +24,7 @@
       <UButton
         aria-label="Loading theme toggle"
         icon="i-lucide-sun"
-        color="primary"
+        color="neutral"
         variant="ghost"
         size="md"
         class="rounded-full pointer-events-none"

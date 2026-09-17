@@ -19,14 +19,12 @@
 </template>
 
 <script setup lang="ts">
-const colorMode = useColorMode()
 const { locale, setLocale, locales } = useI18n()
 
-// Mappa le lingue di i18n per adattarle al formato richiesto dal menu
 const formattedLocales = computed(() => {
   return (locales.value).map((l) => ({
     code: l.code,
-    label: l.code.toUpperCase(),
+    label: l.name ?? l.code.toUpperCase(),
     icon: l.icon || 'i-lucide-globe'
   }))
 })
