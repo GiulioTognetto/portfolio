@@ -6,10 +6,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    name: 'Giulio Tognetto - Full-Stack Developer',
-    description: 'Portfolio e progetti di Giulio Tognetto, sviluppatore Full-Stack specializzato in Rust, TypeScript e web app ad alte prestazioni.',
+    name: 'Giulio Tognetto - Full Stack Developer',
     url: 'https://giuliotognetto.dev',
-    defaultLocale: 'it',
   },
 
   schemaOrg: {
@@ -21,21 +19,19 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    defaultLocale: 'it',
+    langDir: './locales',
+    defaultLocale: 'en',
     locales: [
-      { code: 'it', iso: 'it-IT', name: 'Italiano' },
-      // Aggiungi altre lingue se le usate, es:
-      // { code: 'en', iso: 'en-US', name: 'English' }
+      { code: 'it', iso: 'it-IT', name: 'Italiano', file: 'it.json', icon: 'i-circle-flags-it' },
+      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json', icon: 'i-circle-flags-en' }
     ],
     strategy: 'prefix_except_default',
   },
 
   app: {
     head: {
-      htmlAttrs: {},
-      titleTemplate: '%s %separator %siteName',
+      titleTemplate: '%s %separator',
       templateParams: {
-        siteName: 'Giulio Tognetto - Full-Stack Developer',
         separator: '-',
       },
       link: [

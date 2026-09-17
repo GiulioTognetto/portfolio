@@ -1,0 +1,66 @@
+{
+    "header" : {
+        "home" : "Home",
+        "projects" : "Progetti",
+        "about" : "Chi sono",
+        "contacts" : "Contatti"
+    },
+
+    "sections": {
+        "hero" : {
+            "available-for-projects" : "Disponibile per nuovi progetti",
+            "role" : "Junior Full Stack Developer",
+            "description" : "Sviluppatore Full-Stack specializzato in architetture ad alte prestazioni, sistemi web reattivi ed esperienze 3D interattive.",
+            "see-projects" : "Guarda i Progetti",
+            "contact-me" : "Contattami"
+        },
+
+        "projects" : {
+            "title" : "Progetti in Evidenza",
+            "subtitle" : "Una selezione dei miei lavori recenti tra applicazioni web, bot e grafica 3D."
+        },
+        "contact" : {
+            "get-in-touch" : "Contattami",
+            "title" : "Parliamo del tuo progetto",
+            "subtitle" : "Hai un'idea in mente, vuoi collaborare o semplicemente fare due chiacchiere? Scegli il canale che preferisci.",
+            "book-a-call" : "Prenota una chiamata",
+            "send-an-email" : "Manda una email"
+        }
+    },
+
+    "pages" : {
+        "index" : {
+            "meta" : {
+                "title" : "Home",
+                "description" : "Sviluppatore Full-Stack specializzato in architetture ad alte prestazioni, Rust, Vue/Nuxt e soluzioni cloud.",
+                "ogtitle" : "Giulio Tognetto - Full-Stack Developer",
+                "ogdescription" : "Scopri i miei progetti open-source, software desktop e applicazioni web.",
+                "twittertitle" : "Giulio Tognetto - Full-Stack Developer",
+                "twitterdescription" : "Sviluppatore Full-Stack specializzato in architetture ad alte prestazioni, Rust, Vue/Nuxt e soluzioni cloud."
+            }
+        },
+
+        "credits" : {
+            "meta" : {
+                "title" : "Crediti",
+                "description" : "Ringraziamenti e attribuzioni per le librerie open source, icone, font e risorse utilizzate nello sviluppo di questo sito.",
+                "ogtitle" : "Credits — Giulio Tognetto",
+                "ogdescription" : "Ringraziamenti e attribuzioni per le tecnologie, librerie e risorse utilizzate per realizzare questo sito web.",
+                "twittertitle" : "Credits — Giulio Tognetto",
+                "twitterdescription" : "Librerie open source, icone e risorse utilizzate nello sviluppo del sito."
+            },
+            "thanks" : "Ringraziamenti",
+            "title" : "Crediti & Risorse",
+            "description" : "Questo sito utilizza risorse open source e contributi dalla community. Un sentito ringraziamento ai rispettivi creatori per il loro lavoro.",
+            "audio-and-effects" : "Audio & Effetti Sonori",
+            "author" : "Autore",
+            "source" : "Fonte",
+            "open-source-tech" : "Tecnologie Open Source"
+        }
+    },
+
+    "footer" : {
+        "all-rights-reserved" : "Tutti i diritti riservati",
+        "credits" : "Crediti"
+    }
+}

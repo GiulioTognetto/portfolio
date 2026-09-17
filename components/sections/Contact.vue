@@ -8,7 +8,8 @@
     </div>
 
     <UContainer class="relative z-10 w-full">
-      <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
+      <!-- Rimosso max-w-2xl rigido e impostato un limite più ampio (es. max-w-4xl) o rimosso del tutto -->
+      <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
         
         <UBadge
           color="primary"
@@ -16,18 +17,19 @@
           size="md"
           class="mb-4 font-mono rounded-full px-3.5 py-1"
         >
-          Get in Touch
+          {{ t('sections.contact.get-in-touch') }}
         </UBadge>
         
         <!-- Titolo e Sottotitolo -->
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white">
-          Parliamo del tuo progetto
+          {{ t('sections.contact.title') }}
         </h2>
-        <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-lg">
-          Hai un'idea in mente, vuoi collaborare o semplicemente fare due chiacchiere? Scegli il canale che preferisci.
+        <!-- Sottotitolo allargato a max-w-xl o max-w-2xl per evitare righe troppo strette -->
+        <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+          {{ t('sections.contact.subtitle') }}
         </p>
 
-        <!-- Pulsanti di Azione Principali (layout originale intatto) -->
+        <!-- Pulsanti di Azione Principali -->
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
           <BookACall />
           <UButton
@@ -39,7 +41,7 @@
             icon="i-lucide-mail"
             class="rounded-xl bg-white/80 dark:bg-gray-900/80 hover:bg-white dark:hover:bg-gray-800 border-gray-200 dark:border-gray-800 active:scale-95 transition-all shadow-xs"
           >
-            Invia un'Email
+            {{ t('sections.contact.send-an-email') }}
           </UButton>
         </div>
 
@@ -49,5 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import BookACall from '~/components/BookACall.vue'
+import BookACall from '~/components/buttons/BookACall.vue'
+
+const { t } = useI18n()
 </script>

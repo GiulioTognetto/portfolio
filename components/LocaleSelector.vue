@@ -1,0 +1,42 @@
+<template>
+  <USelectMenu
+    v-model="currentLocale"
+    :items="formattedLocales"
+    value-key="code"
+    label-key="label"
+    variant="none"
+    size="sm"
+    class="w-10"
+    :ui="{
+      content: 'w-28',
+      base: 'rounded-full font-mono font-bold text-xs justify-center dark:bg-gray-800/80 hover:bg-primary-400/20 active:bg-primary-400/20'
+    }"
+  >
+    <template #leading="{ modelValue }">
+      <UIcon :name="getLocaleIcon(modelValue)" class="w-4 h-4" />
+    </template>
+  </USelectMenu>
+</template>
+
+<script setup lang="ts">
+const colorMode = useColorMode()
+const { locale, setLocale, locales } = useI18n()
+
+// Mappa le lingue di i18n per adattarle al formato richiesto dal menu
+const formattedLocales = computed(() => {
+  return (locales.value).map((l) => ({
+    code: l.code,
+    label: l.code.toUpperCase(),
+    icon: l.icon || 'i-lucide-globe'
+  }))
+})
+
+function getLocaleIcon(code: string): string {
+  return (locales.value.find((locale) => locale.code as string === code) as any).icon
+}
+
+const currentLocale = computed({
+  get: () => locale.value,
+  set: (val) => setLocale(val)
+})
+</script>

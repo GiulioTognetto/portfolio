@@ -5,12 +5,14 @@
       <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
         <Logo size="md" v-sound="'meow'" />
         <span v-sound class="font-semibold text-xs tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
-          Home
+          {{ t('header.home') }}
         </span>
       </NuxtLink>
 
       <div class="flex items-center gap-1.5">
+        <LocaleSelector />
         <ColorModeButton />
+
         <!-- Bottone Hamburger -->
         <UButton
           icon="i-heroicons-bars-3"
@@ -42,7 +44,7 @@
           <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Logo size="md" v-sound="'meow'" />
             <span v-sound class="font-semibold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
-              Home
+              {{ t('header.home') }}
             </span>
           </NuxtLink>
           <div class="h-4 flex items-center ml-1">
@@ -52,7 +54,10 @@
       </template>
 
       <template #list-trailing>
-        <ColorModeButton />
+        <div class="flex flex-row gap-2">
+          <ColorModeButton />
+          <LocaleSelector />
+        </div>
       </template>
     </UNavigationMenu>
 
@@ -63,7 +68,7 @@
             <div class="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800">
               <NuxtLink to="/" @click="isMenuOpen = false" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Logo size="sm" v-sound="'meow'" />
-                <span class="font-bold text-sm" v-sound>Home</span>
+                <span class="font-bold text-sm" v-sound>{{ t('header.home') }}</span>
               </NuxtLink>
             </div>
 
@@ -85,8 +90,12 @@
           </div>
 
           <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
-            <span class="text-xs text-neutral-500">Tema</span>
+            <span class="text-xs text-neutral-500">{{ t('header.theme') }}</span>
             <ColorModeButton @click="isMenuOpen = false" />
+          </div>
+          <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+            <span class="text-xs text-neutral-500">{{ t('header.locale') }}</span>
+            <LocaleSelector />
           </div>
         </div>
       </template>
@@ -98,28 +107,32 @@
 import { ref, computed } from 'vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { useSound } from '~/composables/useSound'
+import LocaleSelector from './LocaleSelector.vue'
+import ColorModeButton from './buttons/ColorModeButton.vue'
 
 const isMenuOpen = ref(false)
 const { activeHash, lockObserverTemporarily } = useSectionObserver()
+const { t } = useI18n()
 const { playSound } = useSound()
+const localePath = useLocalePath()
 
 const links = computed<NavigationMenuItem[]>(() => [
   {
-    label: 'Progetti',
+    label: t('header.projects'),
     icon: 'i-lucide-folder-git-2',
-    to: '/#projects',
+    to: localePath('/#projects'),
     exactHash: true,
   },
   {
-    label: 'Su di me',
+    label: t('header.about'),
     icon: 'i-heroicons-user',
-    to: '/#about',
+    to: localePath('/#about'),
     exactHash: true,
   },
   {
-    label: 'Contatti',
+    label: t('header.contacts'),
     icon: 'i-heroicons-envelope',
-    to: '/#contact',
+    to: localePath('/#contact'),
     exactHash: true,
   }
 ])

@@ -4,7 +4,7 @@
       <p class="text-muted text-sm">Copyright</p>
       <UIcon name="i-lucide-copyright" size="sm" class="text-muted"></UIcon>
       <p class="text-muted text-sm">
-        {{ new Date().getFullYear() }} Giulio Tognetto. All rights reserved.
+        {{ new Date().getFullYear() }} Giulio Tognetto. {{ t('footer.all-rights-reserved') }}.
       </p>
     </template>
 
@@ -31,6 +31,15 @@
       />
       <UButton
         v-sound
+        icon="i-simple-icons-linkedin"
+        color="primary"
+        variant="ghost"
+        to="https://www.linkedin.com/in/giuliotognetto/"
+        target="_blank"
+        aria-label="LinkedIn"
+      />
+      <UButton
+        v-sound
         icon="i-simple-icons-github"
         color="primary"
         variant="ghost"
@@ -45,13 +54,15 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const { t } = useI18n()
 const { playSound } = useSound()
+const localePath = useLocalePath()
 
 const items: NavigationMenuItem[] = [
   {
     icon: "i-lucide-creative-commons",
-    label: 'Credits',
-    to: '/credits',
+    label: t('footer.credits'),
+    to: localePath('/credits'),
     onSelect: () => playSound('click')
   }, 
 ]

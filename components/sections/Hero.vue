@@ -44,7 +44,7 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            Disponibile per nuovi progetti
+            {{ t('sections.hero.available-for-projects') }}
           </UBadge>
           
           <!-- Nome con tracking ottimizzato -->
@@ -54,12 +54,12 @@
           
           <!-- Ruolo con gradiente raffinato -->
           <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-primary-600 via-primary-500 to-secondary-500 bg-clip-text text-transparent mt-2 sm:mt-3">
-            Junior Full Stack Developer
+            {{ t('sections.hero.role') }}
           </h2>
 
           <!-- Descrizione più leggibile -->
           <p class="mt-4 sm:mt-5 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-            Sviluppatore Full-Stack specializzato in architetture ad alte prestazioni, sistemi web reattivi ed esperienze 3D interattive.
+            {{ t('sections.hero.description') }}
           </p>
 
           <!-- Tech stack badges -->
@@ -84,7 +84,7 @@
               trailing-icon="i-heroicons-arrow-right-20-solid"
               class="rounded-xl shadow-md shadow-primary-500/20 active:scale-95 transition-all font-medium px-6"
             >
-              Vedi Progetti
+              {{ t('sections.hero.see-projects') }}
             </UButton>
 
             <UButton
@@ -96,7 +96,7 @@
               trailing-icon="i-heroicons-paper-airplane"
               class="rounded-xl bg-white/80 dark:bg-neutral-900/80 hover:bg-primary-100 dark:hover:bg-neutral-800 shadow-xs active:scale-95 transition-all font-medium px-6"
             >
-              Contattami
+              {{ t('sections.hero.contact-me') }}
             </UButton>
           </div>
 
@@ -116,6 +116,7 @@ import Controls from '~/components/3d/Controls.vue'
 
 const techStack = ref<string[]>(['Rust', 'Python', 'Vue', 'Nuxt', 'TypeScript']);
 
+const { t } = useI18n();
 const { playSound } = useSound()
 
 const isMobile = ref(false)

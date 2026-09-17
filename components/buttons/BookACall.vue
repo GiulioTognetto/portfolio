@@ -8,13 +8,14 @@
     class="rounded-xl active:scale-95 transition-all cursor-pointer"
     @click="openCalModal"
   >
-    Prenota una Call
+    {{ t('sections.contact.book-a-call') }}
   </UButton>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
+const { t } = useI18n()
 const colorMode = useColorMode()
 const calBrandColor = ref('');
 

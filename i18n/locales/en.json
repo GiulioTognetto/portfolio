@@ -1,0 +1,66 @@
+{
+    "header" : {
+        "home" : "Home",
+        "projects" : "Projects",
+        "about" : "About Me",
+        "contacts" : "Contacts"
+    },
+
+    "sections": {
+        "hero" : {
+            "available-for-projects" : "Available for new projects",
+            "role" : "Junior Full Stack Developer",
+            "description" : "Full-Stack developer specializing in high-performance architectures, responsive web systems, and interactive 3D experiences.",
+            "see-projects" : "View Projects",
+            "contact-me" : "Contact Me"
+        },
+
+        "projects" : {
+            "title" : "Featured Projects",
+            "subtitle" : "A selection of my recent work spanning web applications, bots, and 3D graphics."
+        },
+        "contact" : {
+            "get-in-touch" : "Get in Touch",
+            "title" : "Let's talk about your project",
+            "subtitle" : "Have an idea in mind, want to collaborate, or just chat? Choose your preferred channel.",
+            "book-a-call" : "Book a Call",
+            "send-an-email" : "Send an Email"
+        }
+    },
+
+    "pages" : {
+        "index" : {
+            "meta" : {
+                "title" : "Home",
+                "description" : "Full-Stack developer specializing in high-performance architectures, Rust, Vue/Nuxt, and cloud solutions.",
+                "ogtitle" : "Giulio Tognetto - Full-Stack Developer",
+                "ogdescription" : "Explore my open-source projects, desktop software, and web applications.",
+                "twittertitle" : "Giulio Tognetto - Full-Stack Developer",
+                "twitterdescription" : "Full-Stack developer specializing in high-performance architectures, Rust, Vue/Nuxt, and cloud solutions."
+            }
+        },
+
+        "credits" : {
+            "meta" : {
+                "title" : "Credits",
+                "description" : "Acknowledgments and attributions for open-source libraries, icons, fonts, and resources used in developing this site.",
+                "ogtitle" : "Credits — Giulio Tognetto",
+                "ogdescription" : "Acknowledgments and attributions for the technologies, libraries, and resources used to build this website.",
+                "twittertitle" : "Credits — Giulio Tognetto",
+                "twitterdescription" : "Open-source libraries, icons, and resources used in the development of the site."
+            },
+            "thanks" : "Acknowledgments",
+            "title" : "Credits & Resources",
+            "description" : "This site uses open-source resources and contributions from the community. A heartfelt thank you to the respective creators for their work.",
+            "audio-and-effects" : "Audio & Sound Effects",
+            "author" : "Author",
+            "source" : "Source",
+            "open-source-tech" : "Open Source Technologies"
+        }
+    },
+
+    "footer" : {
+        "all-rights-reserved" : "All rights reserved",
+        "credits" : "Credits"
+    }
+}
