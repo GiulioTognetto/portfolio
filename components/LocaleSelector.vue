@@ -9,7 +9,7 @@
     class="w-10"
     :ui="{
       content: 'w-28',
-      base: 'rounded-full font-mono font-bold text-xs justify-center dark:bg-gray-800/80 hover:bg-primary-400/20 active:bg-primary-400/20'
+      base: 'rounded-full font-mono font-bold text-xs justify-center hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 active:bg-primary-400/20'
     }"
   >
     <template #leading="{ modelValue }">

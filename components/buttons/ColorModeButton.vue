@@ -9,6 +9,9 @@
       size="md"
       class="rounded-full cursor-pointer"
       @click="startViewTransition"
+      :ui="{
+        base: 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50'
+      }"
     />
     <template #placeholder>
       <UButton
@@ -18,6 +21,9 @@
         variant="ghost"
         size="md"
         class="rounded-full pointer-events-none"
+        :ui="{
+          base: 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50'
+        }"
       />
     </template>
     <template #fallback>
@@ -28,6 +34,9 @@
         variant="ghost"
         size="md"
         class="rounded-full pointer-events-none"
+        :ui="{
+          base: 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50'
+        }"
       />
     </template>
   </ClientOnly>
