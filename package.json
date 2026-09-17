@@ -49,5 +49,8 @@
     "sst": "^4.17.1",
     "typescript": "~7.0.2",
     "vue-tsc": "^3.3.11"
+  },
+  "patchedDependencies": {
+    "unenv@2.0.0-rc.24": "patches/unenv@2.0.0-rc.24.patch"
   }
 }

@@ -32,7 +32,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'it' },
+      htmlAttrs: {},
       titleTemplate: '%s %separator %siteName',
       templateParams: {
         siteName: 'Giulio Tognetto - Full-Stack Developer',
@@ -59,6 +59,12 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
 
+  fonts: {
+    families: [
+      { name: 'Pretendard Std Variable', src: '/fonts/pretendard-variable.ttf', global: true }
+    ]
+  },
+
   sitemap: {
     enabled: true,
     urls: [
@@ -83,7 +89,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "cloudflare-module",
+    preset: "cloudflare-durable",
     tracingChannel: true,
 
     experimental: {

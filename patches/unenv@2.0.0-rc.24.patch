@@ -1,0 +1,992 @@
+diff --git a/LICENSE b/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/README.md b/README.md
+old mode 100644
+new mode 100755
+diff --git a/dist/index.d.mts b/dist/index.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/index.mjs b/dist/index.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/_internal/types.d.mts b/dist/runtime/_internal/types.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/_internal/types.mjs b/dist/runtime/_internal/types.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/_internal/utils.d.mts b/dist/runtime/_internal/utils.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/_internal/utils.mjs b/dist/runtime/_internal/utils.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/empty.d.mts b/dist/runtime/mock/empty.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/empty.mjs b/dist/runtime/mock/empty.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/noop.d.mts b/dist/runtime/mock/noop.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/noop.mjs b/dist/runtime/mock/noop.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/proxy.d.mts b/dist/runtime/mock/proxy.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/mock/proxy.mjs b/dist/runtime/mock/proxy.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/assert/strict.d.mts b/dist/runtime/node/assert/strict.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/assert/strict.mjs b/dist/runtime/node/assert/strict.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/assert.d.mts b/dist/runtime/node/assert.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/assert.mjs b/dist/runtime/node/assert.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/async_hooks.d.mts b/dist/runtime/node/async_hooks.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/async_hooks.mjs b/dist/runtime/node/async_hooks.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/buffer.d.mts b/dist/runtime/node/buffer.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/buffer.mjs b/dist/runtime/node/buffer.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/child_process.d.mts b/dist/runtime/node/child_process.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/child_process.mjs b/dist/runtime/node/child_process.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/cluster.d.mts b/dist/runtime/node/cluster.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/cluster.mjs b/dist/runtime/node/cluster.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/console.d.mts b/dist/runtime/node/console.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/console.mjs b/dist/runtime/node/console.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/constants.d.mts b/dist/runtime/node/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/constants.mjs b/dist/runtime/node/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/crypto.d.mts b/dist/runtime/node/crypto.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/crypto.mjs b/dist/runtime/node/crypto.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dgram.d.mts b/dist/runtime/node/dgram.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dgram.mjs b/dist/runtime/node/dgram.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/diagnostics_channel.d.mts b/dist/runtime/node/diagnostics_channel.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/diagnostics_channel.mjs b/dist/runtime/node/diagnostics_channel.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dns/promises.d.mts b/dist/runtime/node/dns/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dns/promises.mjs b/dist/runtime/node/dns/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dns.d.mts b/dist/runtime/node/dns.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/dns.mjs b/dist/runtime/node/dns.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/domain.d.mts b/dist/runtime/node/domain.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/domain.mjs b/dist/runtime/node/domain.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/events.d.mts b/dist/runtime/node/events.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/events.mjs b/dist/runtime/node/events.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/fs/promises.d.mts b/dist/runtime/node/fs/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/fs/promises.mjs b/dist/runtime/node/fs/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/fs.d.mts b/dist/runtime/node/fs.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/fs.mjs b/dist/runtime/node/fs.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/http.d.mts b/dist/runtime/node/http.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/http.mjs b/dist/runtime/node/http.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/http2.d.mts b/dist/runtime/node/http2.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/http2.mjs b/dist/runtime/node/http2.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/https.d.mts b/dist/runtime/node/https.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/https.mjs b/dist/runtime/node/https.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/inspector/promises.d.mts b/dist/runtime/node/inspector/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/inspector/promises.mjs b/dist/runtime/node/inspector/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/inspector.d.mts b/dist/runtime/node/inspector.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/inspector.mjs b/dist/runtime/node/inspector.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-hook.d.mts b/dist/runtime/node/internal/async_hooks/async-hook.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-hook.mjs b/dist/runtime/node/internal/async_hooks/async-hook.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-local-storage.d.mts b/dist/runtime/node/internal/async_hooks/async-local-storage.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-local-storage.mjs b/dist/runtime/node/internal/async_hooks/async-local-storage.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-resource.d.mts b/dist/runtime/node/internal/async_hooks/async-resource.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/async_hooks/async-resource.mjs b/dist/runtime/node/internal/async_hooks/async-resource.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/base64.d.mts b/dist/runtime/node/internal/buffer/base64.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/base64.mjs b/dist/runtime/node/internal/buffer/base64.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/buffer.d.mts b/dist/runtime/node/internal/buffer/buffer.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/buffer.mjs b/dist/runtime/node/internal/buffer/buffer.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/file.d.mts b/dist/runtime/node/internal/buffer/file.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/file.mjs b/dist/runtime/node/internal/buffer/file.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/ieee754.d.mts b/dist/runtime/node/internal/buffer/ieee754.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/buffer/ieee754.mjs b/dist/runtime/node/internal/buffer/ieee754.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/constants.d.mts b/dist/runtime/node/internal/crypto/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/constants.mjs b/dist/runtime/node/internal/crypto/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/node.d.mts b/dist/runtime/node/internal/crypto/node.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/node.mjs b/dist/runtime/node/internal/crypto/node.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/web.d.mts b/dist/runtime/node/internal/crypto/web.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/crypto/web.mjs b/dist/runtime/node/internal/crypto/web.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/dgram/socket.d.mts b/dist/runtime/node/internal/dgram/socket.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/dgram/socket.mjs b/dist/runtime/node/internal/dgram/socket.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/diagnostics_channel/channel.d.mts b/dist/runtime/node/internal/diagnostics_channel/channel.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/diagnostics_channel/channel.mjs b/dist/runtime/node/internal/diagnostics_channel/channel.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/diagnostics_channel/tracing-channel.d.mts b/dist/runtime/node/internal/diagnostics_channel/tracing-channel.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/diagnostics_channel/tracing-channel.mjs b/dist/runtime/node/internal/diagnostics_channel/tracing-channel.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/dns/constants.d.mts b/dist/runtime/node/internal/dns/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/dns/constants.mjs b/dist/runtime/node/internal/dns/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/domain/domain.d.mts b/dist/runtime/node/internal/domain/domain.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/domain/domain.mjs b/dist/runtime/node/internal/domain/domain.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/events/events.d.mts b/dist/runtime/node/internal/events/events.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/events/events.mjs b/dist/runtime/node/internal/events/events.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/classes.d.mts b/dist/runtime/node/internal/fs/classes.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/classes.mjs b/dist/runtime/node/internal/fs/classes.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/constants.d.mts b/dist/runtime/node/internal/fs/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/constants.mjs b/dist/runtime/node/internal/fs/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/fs.d.mts b/dist/runtime/node/internal/fs/fs.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/fs.mjs b/dist/runtime/node/internal/fs/fs.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/promises.d.mts b/dist/runtime/node/internal/fs/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/fs/promises.mjs b/dist/runtime/node/internal/fs/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/agent.d.mts b/dist/runtime/node/internal/http/agent.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/agent.mjs b/dist/runtime/node/internal/http/agent.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/constants.d.mts b/dist/runtime/node/internal/http/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/constants.mjs b/dist/runtime/node/internal/http/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/request.d.mts b/dist/runtime/node/internal/http/request.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/request.mjs b/dist/runtime/node/internal/http/request.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/response.d.mts b/dist/runtime/node/internal/http/response.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http/response.mjs b/dist/runtime/node/internal/http/response.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http2/constants.d.mts b/dist/runtime/node/internal/http2/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/http2/constants.mjs b/dist/runtime/node/internal/http2/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/net/server.d.mts b/dist/runtime/node/internal/net/server.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/net/server.mjs b/dist/runtime/node/internal/net/server.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/net/socket.d.mts b/dist/runtime/node/internal/net/socket.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/net/socket.mjs b/dist/runtime/node/internal/net/socket.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/os/constants.d.mts b/dist/runtime/node/internal/os/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/os/constants.mjs b/dist/runtime/node/internal/os/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/constants.d.mts b/dist/runtime/node/internal/perf_hooks/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/constants.mjs b/dist/runtime/node/internal/perf_hooks/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/histogram.d.mts b/dist/runtime/node/internal/perf_hooks/histogram.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/histogram.mjs b/dist/runtime/node/internal/perf_hooks/histogram.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/performance.d.mts b/dist/runtime/node/internal/perf_hooks/performance.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/perf_hooks/performance.mjs b/dist/runtime/node/internal/perf_hooks/performance.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/env.d.mts b/dist/runtime/node/internal/process/env.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/env.mjs b/dist/runtime/node/internal/process/env.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/hrtime.d.mts b/dist/runtime/node/internal/process/hrtime.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/hrtime.mjs b/dist/runtime/node/internal/process/hrtime.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/nexttick.d.mts b/dist/runtime/node/internal/process/nexttick.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/nexttick.mjs b/dist/runtime/node/internal/process/nexttick.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/node-version.d.mts b/dist/runtime/node/internal/process/node-version.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/node-version.mjs b/dist/runtime/node/internal/process/node-version.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/process.d.mts b/dist/runtime/node/internal/process/process.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/process/process.mjs b/dist/runtime/node/internal/process/process.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/punycode/punycode.d.mts b/dist/runtime/node/internal/punycode/punycode.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/punycode/punycode.mjs b/dist/runtime/node/internal/punycode/punycode.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/querystring/querystring.d.mts b/dist/runtime/node/internal/querystring/querystring.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/querystring/querystring.mjs b/dist/runtime/node/internal/querystring/querystring.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/interface.d.mts b/dist/runtime/node/internal/readline/interface.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/interface.mjs b/dist/runtime/node/internal/readline/interface.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/promises/interface.d.mts b/dist/runtime/node/internal/readline/promises/interface.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/promises/interface.mjs b/dist/runtime/node/internal/readline/promises/interface.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/promises/readline.d.mts b/dist/runtime/node/internal/readline/promises/readline.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/readline/promises/readline.mjs b/dist/runtime/node/internal/readline/promises/readline.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/duplex.d.mts b/dist/runtime/node/internal/stream/duplex.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/duplex.mjs b/dist/runtime/node/internal/stream/duplex.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/readable.d.mts b/dist/runtime/node/internal/stream/readable.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/readable.mjs b/dist/runtime/node/internal/stream/readable.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/transform.d.mts b/dist/runtime/node/internal/stream/transform.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/transform.mjs b/dist/runtime/node/internal/stream/transform.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/writable.d.mts b/dist/runtime/node/internal/stream/writable.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/stream/writable.mjs b/dist/runtime/node/internal/stream/writable.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/immediate.d.mts b/dist/runtime/node/internal/timers/immediate.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/immediate.mjs b/dist/runtime/node/internal/timers/immediate.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/scheduler.d.mts b/dist/runtime/node/internal/timers/scheduler.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/scheduler.mjs b/dist/runtime/node/internal/timers/scheduler.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-immediate.d.mts b/dist/runtime/node/internal/timers/set-immediate.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-immediate.mjs b/dist/runtime/node/internal/timers/set-immediate.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-interval.d.mts b/dist/runtime/node/internal/timers/set-interval.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-interval.mjs b/dist/runtime/node/internal/timers/set-interval.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-timeout.d.mts b/dist/runtime/node/internal/timers/set-timeout.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/set-timeout.mjs b/dist/runtime/node/internal/timers/set-timeout.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/timeout.d.mts b/dist/runtime/node/internal/timers/timeout.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/timers/timeout.mjs b/dist/runtime/node/internal/timers/timeout.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/constants.d.mts b/dist/runtime/node/internal/tls/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/constants.mjs b/dist/runtime/node/internal/tls/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/secure-context.d.mts b/dist/runtime/node/internal/tls/secure-context.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/secure-context.mjs b/dist/runtime/node/internal/tls/secure-context.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/server.d.mts b/dist/runtime/node/internal/tls/server.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/server.mjs b/dist/runtime/node/internal/tls/server.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/tls-socket.d.mts b/dist/runtime/node/internal/tls/tls-socket.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tls/tls-socket.mjs b/dist/runtime/node/internal/tls/tls-socket.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/trace_events/tracing.d.mts b/dist/runtime/node/internal/trace_events/tracing.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/trace_events/tracing.mjs b/dist/runtime/node/internal/trace_events/tracing.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tty/read-stream.d.mts b/dist/runtime/node/internal/tty/read-stream.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tty/read-stream.mjs b/dist/runtime/node/internal/tty/read-stream.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tty/write-stream.d.mts b/dist/runtime/node/internal/tty/write-stream.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/tty/write-stream.mjs b/dist/runtime/node/internal/tty/write-stream.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/constants.d.mts b/dist/runtime/node/internal/url/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/constants.mjs b/dist/runtime/node/internal/url/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/errors.d.mts b/dist/runtime/node/internal/url/errors.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/errors.mjs b/dist/runtime/node/internal/url/errors.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/url.d.mts b/dist/runtime/node/internal/url/url.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/url.mjs b/dist/runtime/node/internal/url/url.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/util.d.mts b/dist/runtime/node/internal/url/util.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/url/util.mjs b/dist/runtime/node/internal/url/util.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/inherits.d.mts b/dist/runtime/node/internal/util/inherits.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/inherits.mjs b/dist/runtime/node/internal/util/inherits.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/legacy-types.d.mts b/dist/runtime/node/internal/util/legacy-types.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/legacy-types.mjs b/dist/runtime/node/internal/util/legacy-types.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/log.d.mts b/dist/runtime/node/internal/util/log.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/log.mjs b/dist/runtime/node/internal/util/log.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/mime.d.mts b/dist/runtime/node/internal/util/mime.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/mime.mjs b/dist/runtime/node/internal/util/mime.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/promisify.d.mts b/dist/runtime/node/internal/util/promisify.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/promisify.mjs b/dist/runtime/node/internal/util/promisify.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/types.d.mts b/dist/runtime/node/internal/util/types.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/util/types.mjs b/dist/runtime/node/internal/util/types.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/deserializer.d.mts b/dist/runtime/node/internal/v8/deserializer.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/deserializer.mjs b/dist/runtime/node/internal/v8/deserializer.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/profiler.d.mts b/dist/runtime/node/internal/v8/profiler.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/profiler.mjs b/dist/runtime/node/internal/v8/profiler.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/serializer.d.mts b/dist/runtime/node/internal/v8/serializer.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/v8/serializer.mjs b/dist/runtime/node/internal/v8/serializer.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/vm/constants.d.mts b/dist/runtime/node/internal/vm/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/vm/constants.mjs b/dist/runtime/node/internal/vm/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/vm/script.d.mts b/dist/runtime/node/internal/vm/script.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/vm/script.mjs b/dist/runtime/node/internal/vm/script.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/broadcast-channel.d.mts b/dist/runtime/node/internal/worker_threads/broadcast-channel.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/broadcast-channel.mjs b/dist/runtime/node/internal/worker_threads/broadcast-channel.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/message-channel.d.mts b/dist/runtime/node/internal/worker_threads/message-channel.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/message-channel.mjs b/dist/runtime/node/internal/worker_threads/message-channel.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/message-port.d.mts b/dist/runtime/node/internal/worker_threads/message-port.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/message-port.mjs b/dist/runtime/node/internal/worker_threads/message-port.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/worker.d.mts b/dist/runtime/node/internal/worker_threads/worker.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/worker_threads/worker.mjs b/dist/runtime/node/internal/worker_threads/worker.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/codes.d.mts b/dist/runtime/node/internal/zlib/codes.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/codes.mjs b/dist/runtime/node/internal/zlib/codes.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/constants.d.mts b/dist/runtime/node/internal/zlib/constants.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/constants.mjs b/dist/runtime/node/internal/zlib/constants.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/_shared.d.mts b/dist/runtime/node/internal/zlib/formats/_shared.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/_shared.mjs b/dist/runtime/node/internal/zlib/formats/_shared.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/brotli.d.mts b/dist/runtime/node/internal/zlib/formats/brotli.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/brotli.mjs b/dist/runtime/node/internal/zlib/formats/brotli.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/deflate.d.mts b/dist/runtime/node/internal/zlib/formats/deflate.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/deflate.mjs b/dist/runtime/node/internal/zlib/formats/deflate.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/gzip.d.mts b/dist/runtime/node/internal/zlib/formats/gzip.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/gzip.mjs b/dist/runtime/node/internal/zlib/formats/gzip.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/zip.d.mts b/dist/runtime/node/internal/zlib/formats/zip.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/internal/zlib/formats/zip.mjs b/dist/runtime/node/internal/zlib/formats/zip.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/module.d.mts b/dist/runtime/node/module.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/module.mjs b/dist/runtime/node/module.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/net.d.mts b/dist/runtime/node/net.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/net.mjs b/dist/runtime/node/net.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/os.d.mts b/dist/runtime/node/os.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/os.mjs b/dist/runtime/node/os.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path/posix.d.mts b/dist/runtime/node/path/posix.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path/posix.mjs b/dist/runtime/node/path/posix.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path/win32.d.mts b/dist/runtime/node/path/win32.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path/win32.mjs b/dist/runtime/node/path/win32.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path.d.mts b/dist/runtime/node/path.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/path.mjs b/dist/runtime/node/path.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/perf_hooks.d.mts b/dist/runtime/node/perf_hooks.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/perf_hooks.mjs b/dist/runtime/node/perf_hooks.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/process.d.mts b/dist/runtime/node/process.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/process.mjs b/dist/runtime/node/process.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/punycode.d.mts b/dist/runtime/node/punycode.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/punycode.mjs b/dist/runtime/node/punycode.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/querystring.d.mts b/dist/runtime/node/querystring.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/querystring.mjs b/dist/runtime/node/querystring.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/readline/promises.d.mts b/dist/runtime/node/readline/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/readline/promises.mjs b/dist/runtime/node/readline/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/readline.d.mts b/dist/runtime/node/readline.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/readline.mjs b/dist/runtime/node/readline.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/repl.d.mts b/dist/runtime/node/repl.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/repl.mjs b/dist/runtime/node/repl.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/sqlite.d.mts b/dist/runtime/node/sqlite.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/sqlite.mjs b/dist/runtime/node/sqlite.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/consumers.d.mts b/dist/runtime/node/stream/consumers.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/consumers.mjs b/dist/runtime/node/stream/consumers.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/promises.d.mts b/dist/runtime/node/stream/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/promises.mjs b/dist/runtime/node/stream/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/web.d.mts b/dist/runtime/node/stream/web.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream/web.mjs b/dist/runtime/node/stream/web.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream.d.mts b/dist/runtime/node/stream.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/stream.mjs b/dist/runtime/node/stream.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/string_decoder.d.mts b/dist/runtime/node/string_decoder.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/string_decoder.mjs b/dist/runtime/node/string_decoder.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/sys.d.mts b/dist/runtime/node/sys.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/sys.mjs b/dist/runtime/node/sys.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/timers/promises.d.mts b/dist/runtime/node/timers/promises.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/timers/promises.mjs b/dist/runtime/node/timers/promises.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/timers.d.mts b/dist/runtime/node/timers.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/timers.mjs b/dist/runtime/node/timers.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/tls.d.mts b/dist/runtime/node/tls.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/tls.mjs b/dist/runtime/node/tls.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/trace_events.d.mts b/dist/runtime/node/trace_events.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/trace_events.mjs b/dist/runtime/node/trace_events.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/tty.d.mts b/dist/runtime/node/tty.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/tty.mjs b/dist/runtime/node/tty.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/url.d.mts b/dist/runtime/node/url.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/url.mjs b/dist/runtime/node/url.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/util/types.d.mts b/dist/runtime/node/util/types.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/util/types.mjs b/dist/runtime/node/util/types.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/util.d.mts b/dist/runtime/node/util.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/util.mjs b/dist/runtime/node/util.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/v8.d.mts b/dist/runtime/node/v8.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/v8.mjs b/dist/runtime/node/v8.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/vm.d.mts b/dist/runtime/node/vm.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/vm.mjs b/dist/runtime/node/vm.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/wasi.d.mts b/dist/runtime/node/wasi.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/wasi.mjs b/dist/runtime/node/wasi.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/worker_threads.d.mts b/dist/runtime/node/worker_threads.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/worker_threads.mjs b/dist/runtime/node/worker_threads.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/zlib.d.mts b/dist/runtime/node/zlib.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/node/zlib.mjs b/dist/runtime/node/zlib.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/cross-fetch.d.mts b/dist/runtime/npm/cross-fetch.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/cross-fetch.mjs b/dist/runtime/npm/cross-fetch.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/debug.d.mts b/dist/runtime/npm/debug.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/debug.mjs b/dist/runtime/npm/debug.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/fsevents.d.mts b/dist/runtime/npm/fsevents.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/fsevents.mjs b/dist/runtime/npm/fsevents.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/inherits.d.mts b/dist/runtime/npm/inherits.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/inherits.mjs b/dist/runtime/npm/inherits.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/node-fetch.d.mts b/dist/runtime/npm/node-fetch.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/node-fetch.mjs b/dist/runtime/npm/node-fetch.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/whatwg-url/index.d.mts b/dist/runtime/npm/whatwg-url/index.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/whatwg-url/index.mjs b/dist/runtime/npm/whatwg-url/index.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/whatwg-url/webidl2js-wrapper.d.mts b/dist/runtime/npm/whatwg-url/webidl2js-wrapper.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/npm/whatwg-url/webidl2js-wrapper.mjs b/dist/runtime/npm/whatwg-url/webidl2js-wrapper.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/buffer.d.mts b/dist/runtime/polyfill/buffer.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/buffer.mjs b/dist/runtime/polyfill/buffer.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/globalthis-global.d.mts b/dist/runtime/polyfill/globalthis-global.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/globalthis-global.mjs b/dist/runtime/polyfill/globalthis-global.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/globalthis.d.mts b/dist/runtime/polyfill/globalthis.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/globalthis.mjs b/dist/runtime/polyfill/globalthis.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/package.json b/dist/runtime/polyfill/package.json
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/performance.d.mts b/dist/runtime/polyfill/performance.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/performance.mjs b/dist/runtime/polyfill/performance.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/process.d.mts b/dist/runtime/polyfill/process.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/process.mjs b/dist/runtime/polyfill/process.mjs
+old mode 100644
+new mode 100755
+index bb96264adfa916a66d98afda1a2fac16638be65f..f33eb9d910fd5c2c989d77baf7080d2ba0b7bb79
+--- a/dist/runtime/polyfill/process.mjs
++++ b/dist/runtime/polyfill/process.mjs
+@@ -5,6 +5,6 @@ globalThis.process = originalProcess ? new Proxy(originalProcess, { get(target,
+ 	if (Reflect.has(target, prop)) {
+ 		return Reflect.get(target, prop, receiver);
+ 	}
+-	return Reflect.get(processModule, prop, receiver);
++	return Reflect.get(processModule, prop, processModule);
+ } }) : processModule;
+ export default globalThis.process;
+diff --git a/dist/runtime/polyfill/source-maps.mjs b/dist/runtime/polyfill/source-maps.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/timers.d.mts b/dist/runtime/polyfill/timers.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/polyfill/timers.mjs b/dist/runtime/polyfill/timers.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/web/performance/_polyfills.d.mts b/dist/runtime/web/performance/_polyfills.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/web/performance/_polyfills.mjs b/dist/runtime/web/performance/_polyfills.mjs
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/web/performance/index.d.mts b/dist/runtime/web/performance/index.d.mts
+old mode 100644
+new mode 100755
+diff --git a/dist/runtime/web/performance/index.mjs b/dist/runtime/web/performance/index.mjs
+old mode 100644
+new mode 100755
+diff --git a/lib/mock.cjs b/lib/mock.cjs
+old mode 100644
+new mode 100755
+diff --git a/lib/mock.d.cts b/lib/mock.d.cts
+old mode 100644
+new mode 100755
+diff --git a/package.json b/package.json
+old mode 100644
+new mode 100755
