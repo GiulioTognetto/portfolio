@@ -10,8 +10,8 @@
       </NuxtLink>
 
       <div class="flex items-center gap-1.5">
-        <LocaleSelector />
         <ColorModeButton />
+        <LocaleSelector />
 
         <!-- Bottone Hamburger -->
         <UButton

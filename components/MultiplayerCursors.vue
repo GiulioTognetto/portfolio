@@ -77,6 +77,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 
+const router = useRouter()
+const getRouteBaseName = useRouteBaseName()
+
 interface RemoteCursor {
   x: number // Percentuale 0-100 sul totale documento
   y: number // Percentuale 0-100 sul totale documento
@@ -133,7 +136,7 @@ const updateWindowMetrics = () => {
   )
 }
 
-// Computa le posizioni pixel filtrando per ROTTA VISIBILE + VIEWPORT
+// Computa le posizioni pixel usando il base name della rotta (ignora /it, /en, ecc.)
 const renderableCursors = computed(() => {
   const result: Record<string, RenderableCursor> = {}
   
@@ -143,11 +146,17 @@ const renderableCursors = computed(() => {
   const sY = windowScrollY.value
   const vW = viewportWidth.value
   const vH = viewportHeight.value
-  const currentPath = route.path
+
+  // Ottiene il nome base della rotta corrente (es. "index") pulito dalla lingua
+  const currentBaseName = getRouteBaseName(route)
 
   for (const [id, cursor] of Object.entries(remoteCursors.value)) {
-    // FILTRO 1: Salta i cursori che si trovano su rotte diverse
-    if (cursor.route !== currentPath) continue
+    // Risolve la stringa della rotta del cursore remoto per estgefere il suo base name in sicurezza
+    const resolvedCursorRoute = router.resolve(cursor.route || '/')
+    const cursorBaseName = getRouteBaseName(resolvedCursorRoute)
+
+    // FILTRO 1: Salta i cursori che si trovano su pagine/viste differenti
+    if (cursorBaseName !== currentBaseName) continue
 
     // Converti la percentuale del documento in Coordinate Assolute nel Documento (px)
     const docX = (cursor.x / 100) * docW
