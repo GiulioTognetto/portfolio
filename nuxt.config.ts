@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     locales: [
       { code: 'it', iso: 'it-IT', name: 'Italiano', file: 'it.json', icon: 'i-circle-flags-it' },
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json', icon: 'i-circle-flags-en' }
+      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json', icon: 'i-circle-flags-us' }
     ],
     strategy: 'prefix_except_default',
   },
