@@ -42,7 +42,7 @@
         <!-- RENDERING DESKTOP: Freccia SVG Figma-style -->
         <template v-else>
           <svg
-            class="h-6 w-6 -rotate-[12deg] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] select-none"
+            class="h-6 w-6 -rotate-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] select-none"
             viewBox="0 0 24 24"
           >
             <path

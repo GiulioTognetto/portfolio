@@ -1,14 +1,13 @@
 <template>
-  <!-- 🎯 section relative per fare da contenitore al posizionamento absolute dello ScrollIndicator -->
-  <section id="hero" class="min-h-dvh bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 relative overflow-hidden transition-colors duration-300 flex items-center justify-center z-0 pt-16 lg:pt-0">
+  <section id="hero" class="relative min-h-dvh flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 pt-20 lg:pt-0">
     
-    <!-- Background Accents -->
-    <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-primary-500/30 dark:bg-primary-500/20 rounded-full blur-[128px] pointer-events-none z-0 transition-all duration-300" />
-    <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-primary-500/30 dark:bg-primary-500/20 rounded-full blur-[128px] pointer-events-none z-0 transition-all duration-300" />
-    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-400)_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-primary-600)_1px,transparent_1px)] [background-size:24px_24px] opacity-25 dark:opacity-20 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+    <!-- Background Accents (Più sfumati ed eleganti) -->
+    <div class="absolute -top-48 -left-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
+    <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
+    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-primary-400)_1px,transparent_1px)] bg-size-[32px_32px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
     <!-- Viewport 3D -->
-    <div class="absolute top-17.5 left-0 w-full h-[40vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">
+    <div class="absolute top-14 left-0 w-full h-[36vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">
       <ClientOnly>
         <Viewer>
           <Scene @update="(delta) => onSceneUpdate(delta)">
@@ -28,16 +27,18 @@
         </Viewer>
       </ClientOnly>
     </div>
-    <UContainer class="w-full relative z-10 pointer-events-none pt-[38vh] lg:pt-0 pb-24 lg:pb-0 my-auto">
+
+    <UContainer class="w-full relative z-10 pointer-events-none pt-[34vh] lg:pt-0 pb-16 lg:pb-0 my-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <div class="lg:col-span-7 flex flex-col items-start text-left select-none pointer-events-auto">
+        <div class="lg:col-span-8 xl:col-span-7 flex flex-col items-start text-left select-none pointer-events-auto">
           
+          <!-- Badge di disponibilità rifinito -->
           <UBadge 
             color="neutral"
             variant="outline" 
-            size="lg"
-            class="mb-3 sm:mb-6 rounded-full px-3.5 py-1.5 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 gap-2.5 font-mono font-medium text-gray-700 dark:text-gray-300 text-xs sm:text-sm"
+            size="md"
+            class="mb-4 sm:mb-6 rounded-full px-4 py-1.5 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-gray-200/80 dark:border-gray-800 gap-2.5 font-mono font-medium text-gray-700 dark:text-gray-300 text-xs sm:text-sm shadow-xs"
           >
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -46,32 +47,34 @@
             Disponibile per nuovi progetti
           </UBadge>
           
-          <h1 class="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-gray-900 dark:text-white leading-[0.95]">
+          <!-- Nome con tracking ottimizzato -->
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.05]">
             Giulio Tognetto
           </h1>
           
-          <h2 class="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold bg-linear-to-r from-primary-500 via-primary-400 to-secondary-500 bg-clip-text text-transparent mt-2 sm:mt-4">
-            Software Developer
+          <!-- Ruolo con gradiente raffinato -->
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-primary-600 via-primary-500 to-secondary-500 bg-clip-text text-transparent mt-2 sm:mt-3">
+            Junior Full Stack Developer
           </h2>
 
-          <p class="mt-3 sm:mt-6 text-sm sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+          <!-- Descrizione più leggibile -->
+          <p class="mt-4 sm:mt-5 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
             Sviluppatore Full-Stack specializzato in architetture ad alte prestazioni, sistemi web reattivi ed esperienze 3D interattive.
           </p>
 
-          <div class="mt-3 sm:mt-6 flex flex-wrap gap-2">
-            <UBadge
+          <!-- Tech stack badges -->
+          <div class="mt-5 sm:mt-6 flex flex-wrap gap-2">
+            <span
               v-for="tech in ['Vue.js / Nuxt', 'TypeScript', 'Rust', 'Three.js', 'Cloudflare']" 
               :key="tech"
-              color="primary"
-              variant="subtle"
-              :size="isMobile ? 'sm' : 'md'"
-              class="font-mono rounded-lg px-2.5 py-0.5 sm:px-3 sm:py-1 bg-gray-200/60 dark:bg-gray-800/60 border border-gray-300/40 dark:border-gray-700/40 backdrop-blur-xs text-xs sm:text-sm text-gray-700 dark:text-gray-300"
+              class="font-mono text-xs sm:text-sm rounded-lg px-3 py-1 bg-white/60 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 text-gray-600 dark:text-gray-400 shadow-2xs backdrop-blur-xs"
             >
               {{ tech }}
-            </UBadge>
+            </span>
           </div>
 
-          <div class="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+          <!-- Bottoni CTA -->
+          <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <UButton
               to="#projects"
               @click="playSound()"
@@ -79,7 +82,7 @@
               variant="solid"
               size="xl"
               trailing-icon="i-heroicons-arrow-right-20-solid"
-              class="rounded-xl shadow-lg shadow-primary-500/25 active:scale-95 transition-all group"
+              class="rounded-xl shadow-md shadow-primary-500/20 active:scale-95 transition-all font-medium px-6"
             >
               Vedi Progetti
             </UButton>
@@ -87,10 +90,11 @@
             <UButton
               to="#contact"
               @click="playSound()"
-              color="primary"
+              color="neutral"
               variant="outline"
               size="xl"
-              class="rounded-xl bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700/60 active:scale-95 transition-all shadow-xs"
+              trailing-icon="i-heroicons-paper-airplane"
+              class="rounded-xl shadow-xs active:scale-95 transition-all font-medium px-6"
             >
               Contattami
             </UButton>
@@ -145,7 +149,6 @@ const isModelLoaded = ref<boolean>(false)
 
 let hasImpacted = false
 
-// --- GESTIONE ANIMAZIONE WAVING CASUALE ---
 const targetWaves = ref(0)
 
 const modelFadeConfig = {
@@ -158,9 +161,8 @@ const modelFadeConfig = {
   'FlatImpact->ImpactStandup': { duration: 0.15, fadeOut: 0.30 },
   'ImpactStandup->Idle': { duration: 0.35, fadeOut: 0.50, warp: true },
 
-  // Transizioni per Waving
   'Idle->Waving': { duration: 0.2, fadeOut: 0.3 },
-  'Waving->Idle': { duration: 0.25, fadeOut: 0.4, warp: true }
+  'Waving->Idle': { duration: 0.20, fadeOut: 0.5, warp: true }
 }
 
 function setIdleAnimation() {
@@ -194,7 +196,6 @@ function onSceneUpdate(delta: number) {
   }
 }
 
-// Gestione dell'impatto iniziale (animazioni non in loop)
 function onAnimationFinished(animation: string) {
   if (animation === 'FlatImpact') {
     modelAnimationLoop.value = false
@@ -204,17 +205,14 @@ function onAnimationFinished(animation: string) {
   }
 }
 
-// Gestione dei cicli per le animazioni in loop (Idle e Waving)
 function onAnimationLoop(payload: { name: string; count: number }) {
   if (payload.name === 'Idle') {
-    // Ad ogni ciclo di Idle, 40% di probabilità di far partire i saluti
     if (Math.random() < 0.4) {
-      targetWaves.value = Math.floor(Math.random() * 5) + 1 // Da 1 a 5 volte
+      targetWaves.value = Math.floor(Math.random() * 5) + 1
       modelAnimationLoop.value = true
       modelAnimation.value = 'Waving'
     }
   } else if (payload.name === 'Waving') {
-    // Quando Waving ha completato il numero N di ripetizioni stabilite
     if (payload.count >= targetWaves.value) {
       setIdleAnimation()
     }

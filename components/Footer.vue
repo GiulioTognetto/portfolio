@@ -1,5 +1,5 @@
 <template>
-  <UFooter>
+  <UFooter class="dark:bg-gray-900 bg-gray-100 border-t border-gray-200/80 dark:border-gray-800/80">
     <template #left>
       <p class="text-muted text-sm">Copyright</p>
       <UIcon name="i-lucide-copyright" size="sm" class="text-muted"></UIcon>

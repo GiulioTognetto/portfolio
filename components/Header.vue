@@ -29,11 +29,12 @@
       :items="navLinks"
       variant="pill"
       color="primary"
-      class="hidden sm:flex bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-5 py-1 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md max-w-max items-center pointer-events-auto"
+      class="hidden sm:flex bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-5 py-1 border border-neutral-200/80 dark:border-neutral-700/80 shadow-sm max-w-max items-center pointer-events-auto"
       :ui="{
+        root: 'relative',
         item: 'mx-0.5',
-        link: 'py-1.5 px-3 text-sm font-medium',
-        linkLeadingIcon: 'text-primary-500 dark:text-primary-400 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors duration-150 size-5'
+        link: 'py-1.5 px-3 text-sm font-medium rounded-full transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 data-active:bg-primary data-active:text-white data-active:shadow-xs before:hidden',
+        linkLeadingIcon: 'text-neutral-500 dark:text-neutral-400 group-data-active:text-white group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-200 size-5'
       }"
     >
       <template #list-leading>
@@ -90,7 +91,6 @@
         </div>
       </template>
     </USlideover>
-
   </div>
 </template>
 
