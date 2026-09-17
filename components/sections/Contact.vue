@@ -8,7 +8,6 @@
     </div>
 
     <UContainer class="relative z-10 w-full">
-      <!-- Rimosso max-w-2xl rigido e impostato un limite più ampio (es. max-w-4xl) o rimosso del tutto -->
       <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
         
         <UBadge
@@ -24,14 +23,13 @@
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white">
           {{ t('sections.contact.title') }}
         </h2>
-        <!-- Sottotitolo allargato a max-w-xl o max-w-2xl per evitare righe troppo strette -->
         <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
           {{ t('sections.contact.subtitle') }}
         </p>
 
-        <!-- Pulsanti di Azione Principali -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
-          <BookACall />
+        <!-- Pulsanti di Azione Principali (flex-col su mobile, flex-row su sm+) -->
+        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto">
+          <BookACall class="w-full sm:w-auto justify-center" />
           <UButton
             v-sound
             to="mailto:contact@giuliotognetto.dev"
@@ -39,7 +37,7 @@
             variant="outline"
             size="xl"
             icon="i-lucide-mail"
-            class="rounded-xl bg-white/80 dark:bg-gray-900/80 hover:bg-white dark:hover:bg-gray-800 border-gray-200 dark:border-gray-800 active:scale-95 transition-all shadow-xs"
+            class="rounded-xl bg-white/80 dark:bg-gray-900/80 hover:bg-white dark:hover:bg-gray-800 border-gray-200 dark:border-gray-800 active:scale-95 transition-all shadow-xs justify-center w-full sm:w-auto"
           >
             {{ t('sections.contact.send-an-email') }}
           </UButton>

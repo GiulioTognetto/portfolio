@@ -6,8 +6,8 @@
     <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
     <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] bg-size-[36px_36px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
-    <!-- Viewport 3D -->
-    <div class="absolute top-14 left-0 w-full h-[36vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">
+    <!-- Viewport 3D: h-[65vh] solo su mobile, h-full da desktop (lg) in poi -->
+    <div class="absolute top-14 left-0 w-full h-[65vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">
       <ClientOnly>
         <Viewer>
           <Scene @update="(delta) => onSceneUpdate(delta)">
@@ -31,7 +31,8 @@
     <UContainer class="w-full relative z-10 pointer-events-none pt-[34vh] lg:pt-0 pb-16 lg:pb-0 my-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <div class="lg:col-span-8 xl:col-span-7 flex flex-col items-start text-left select-none pointer-events-auto">
+        <!-- Contenitore del testo con sfondo e blur applicati solo su mobile (senza sfondo su lg:) -->
+        <div class="lg:col-span-8 xl:col-span-7 flex flex-col items-start text-left select-none pointer-events-auto p-6 sm:p-8 rounded-3xl backdrop-blur-md bg-white/50 dark:bg-neutral-900/95 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none lg:p-0">
           
           <!-- Badge di disponibilità rifinito -->
           <UBadge 
@@ -73,33 +74,32 @@
             </span>
           </div>
 
-          <!-- Bottoni CTA -->
-          <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            <UButton
-              to="#projects"
-              @click="playSound()"
-              color="primary"
-              variant="solid"
-              size="xl"
-              trailing-icon="i-heroicons-arrow-right-20-solid"
-              class="rounded-xl shadow-md shadow-primary-500/20 active:scale-95 transition-all font-medium px-6"
-            >
-              {{ t('sections.hero.see-projects') }}
-            </UButton>
+            <!-- Bottoni CTA -->
+            <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <UButton
+                :to="localePath('/#projects')"
+                @click="playSound()"
+                color="primary"
+                variant="solid"
+                size="xl"
+                trailing-icon="i-heroicons-arrow-right-20-solid"
+                class="rounded-xl shadow-md shadow-primary-500/20 active:scale-95 transition-all font-medium justify-center px-6"
+              >
+                {{ t('sections.hero.see-projects') }}
+              </UButton>
 
-            <UButton
-              to="#contact"
-              @click="playSound()"
-              color="neutral"
-              variant="outline"
-              size="xl"
-              trailing-icon="i-heroicons-paper-airplane"
-              class="rounded-xl bg-white/80 dark:bg-neutral-900/80 hover:bg-primary-100 dark:hover:bg-neutral-800 shadow-xs active:scale-95 transition-all font-medium px-6"
-            >
-              {{ t('sections.hero.contact-me') }}
-            </UButton>
-          </div>
-
+              <UButton
+                :to="localePath('/#contact')"
+                @click="playSound()"
+                color="neutral"
+                variant="outline"
+                size="xl"
+                trailing-icon="i-heroicons-paper-airplane"
+                class="rounded-xl bg-white/80 dark:bg-neutral-900/80 hover:bg-primary-100 dark:hover:bg-neutral-800 shadow-xs active:scale-95 transition-all font-medium justify-center px-6"
+              >
+                {{ t('sections.hero.contact-me') }}
+              </UButton>
+            </div>
         </div>
       </div>
     </UContainer>
@@ -114,9 +114,10 @@ import Model from '~/components/3d/Model.vue'
 import Camera from '~/components/3d/Camera.vue'
 import Controls from '~/components/3d/Controls.vue'
 
-const techStack = ref<string[]>(['Rust', 'Python', 'Vue', 'Nuxt', 'TypeScript']);
+const techStack = ref<string[]>(['Rust', 'Python', 'Vue', 'Nuxt', 'TypeScript'])
 
-const { t } = useI18n();
+const { t } = useI18n()
+const localePath = useLocalePath()
 const { playSound } = useSound()
 
 const isMobile = ref(false)
@@ -136,7 +137,7 @@ onBeforeUnmount(() => {
 })
 
 const modelScale = computed(() => isMobile.value ? 3.0 : 2.7)
-const targetY = computed(() => isMobile.value ? -2.5 : -2.5)
+const targetY = computed(() => isMobile.value ? -2.7 : -2.5)
 
 const startY = 10
 const duration = 1.0
