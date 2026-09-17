@@ -1,5 +1,5 @@
 <template>
-  <div class="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
+  <div class="pointer-events-none fixed inset-0 z-100 overflow-hidden">
     <!-- Renderizza i cursori degli altri utenti sulla stessa rotta -->
     <TransitionGroup name="cursor">
       <div

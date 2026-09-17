@@ -5,7 +5,7 @@
     variant="solid"
     size="xl"
     icon="i-lucide-calendar"
-    class="rounded-xl shadow-lg shadow-primary-500/25 active:scale-95 transition-all cursor-pointer"
+    class="rounded-xl active:scale-95 transition-all cursor-pointer"
     @click="openCalModal"
   >
     Prenota una Call

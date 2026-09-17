@@ -1,12 +1,8 @@
 <template>
   <section id="contact" class="relative min-h-screen flex items-center justify-center overflow-hidden py-12">
-    <!-- Glow di sfondo discreto per la sezione -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60dvw] h-[60dvw] max-w-200 max-h-200 pointer-events-none z-0 opacity-40 dark:opacity-30 [mask-image:radial-gradient(farthest-side,white,transparent)]">
-      <!-- Glow principale conico (effetto 'aurora' rotante) -->
-      <div class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,var(--ui-primary)_0deg,var(--ui-primary)_60deg,transparent_100%)] blur-[90px] animate-slow-spin" />
-      
-      <!-- Glow secondario (per dare corpo al centro) -->
-      <div class="absolute inset-16 rounded-full bg-primary-400/20 dark:bg-primary-500/10 blur-[70px]" />
+    <!-- Glow di sfondo ottimizzato e fluido (zero scatti, accelerato via GPU) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60dvw] h-[60dvw] max-w-200 max-h-200 pointer-events-none z-0 opacity-40 dark:opacity-35 blur-[100px] transform-gpu">
+      <div class="absolute inset-0 rounded-full bg-linear-to-bl from-primary-400/40 via-primary-600/20 to-transparent" />
     </div>
 
     <UContainer class="relative z-10 w-full">
@@ -29,7 +25,7 @@
           Hai un'idea in mente, vuoi collaborare o semplicemente fare due chiacchiere? Scegli il canale che preferisci.
         </p>
 
-        <!-- Pulsanti di Azione Principali -->
+        <!-- Pulsanti di Azione Principali (layout originale intatto) -->
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
           <BookACall />
           <UButton

@@ -33,7 +33,7 @@
       :ui="{
         root: 'relative',
         item: 'mx-0.5',
-        link: 'py-1.5 px-3 text-sm font-medium rounded-full transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 data-active:bg-primary data-active:text-white data-active:shadow-xs before:hidden',
+        link: 'py-1.5 px-3 text-sm font-medium rounded-full transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 data-active:bg-primary-400 data-active:hover:bg-primary-400/90 dark:data-active:bg-primary-400/80 dark:data-active:hover:bg-primary-400/60 data-active:text-white data-active:shadow-xs before:hidden',
         linkLeadingIcon: 'text-neutral-500 dark:text-neutral-400 group-data-active:text-white group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-200 size-5'
       }"
     >
@@ -106,7 +106,7 @@ const { playSound } = useSound()
 const links = computed<NavigationMenuItem[]>(() => [
   {
     label: 'Progetti',
-    icon: 'i-heroicons-folder-open',
+    icon: 'i-lucide-folder-git-2',
     to: '/#projects',
     exactHash: true,
   },

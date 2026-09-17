@@ -65,9 +65,9 @@
           <!-- Tech stack badges -->
           <div class="mt-5 sm:mt-6 flex flex-wrap gap-2">
             <span
-              v-for="tech in ['Vue.js / Nuxt', 'TypeScript', 'Rust', 'Three.js', 'Cloudflare']" 
+              v-for="tech in techStack" 
               :key="tech"
-              class="font-mono text-xs sm:text-sm rounded-lg px-3 py-1 bg-white/60 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 text-gray-600 dark:text-gray-400 shadow-2xs backdrop-blur-xs"
+              class="font-mono text-xs sm:text-sm rounded-lg px-3 py-1 bg-white/60 dark:bg-gray-900/60 border-2 dark:border border-gray-200/80 dark:border-gray-800 text-gray-600 dark:text-gray-400 shadow-2xs backdrop-blur-xs"
             >
               {{ tech }}
             </span>
@@ -94,7 +94,7 @@
               variant="outline"
               size="xl"
               trailing-icon="i-heroicons-paper-airplane"
-              class="rounded-xl shadow-xs active:scale-95 transition-all font-medium px-6"
+              class="rounded-xl bg-white/80 dark:bg-neutral-900/80 hover:bg-primary-100 dark:hover:bg-neutral-800 shadow-xs active:scale-95 transition-all font-medium px-6"
             >
               Contattami
             </UButton>
@@ -113,6 +113,8 @@ import Scene from '~/components/3d/Scene.vue'
 import Model from '~/components/3d/Model.vue'
 import Camera from '~/components/3d/Camera.vue'
 import Controls from '~/components/3d/Controls.vue'
+
+const techStack = ref<string[]>(['Rust', 'Python', 'Vue', 'Nuxt', 'TypeScript']);
 
 const { playSound } = useSound()
 
