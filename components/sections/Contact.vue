@@ -1,6 +1,8 @@
 <template>
   <section id="contact" class="relative min-h-screen flex items-center justify-center overflow-hidden py-12">
     <!-- Glow di sfondo ottimizzato e fluido (zero scatti, accelerato via GPU) -->
+    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] bg-size-[36px_36px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+  
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60dvw] h-[60dvw] max-w-200 max-h-200 pointer-events-none z-0 opacity-40 dark:opacity-35 blur-[100px] transform-gpu">
       <div class="absolute inset-0 rounded-full bg-linear-to-bl from-primary-400/40 via-primary-600/20 to-transparent" />
     </div>

@@ -4,7 +4,7 @@
     <!-- Background Accents (Più sfumati ed eleganti) -->
     <div class="absolute -top-48 -left-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
     <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
-    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_1px,transparent_1px)] dark:bg-[radial-gradient(var(--color-primary-400)_1px,transparent_1px)] bg-size-[32px_32px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] bg-size-[36px_36px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
     <!-- Viewport 3D -->
     <div class="absolute top-14 left-0 w-full h-[36vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">

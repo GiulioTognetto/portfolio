@@ -29,7 +29,7 @@ export function useSound() {
     return audioCache[effect] || null
   }
 
-  const playSound = (effect: SoundEffect = 'click', volume: number = 0.4) => {
+  const playSound = (effect: SoundEffect = 'click', volume: number = 0.25) => {
     if (isMuted.value) return
 
     const sound = getAudioInstance(effect)
