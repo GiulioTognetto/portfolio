@@ -3,7 +3,9 @@
         "home" : "Home",
         "projects" : "Progetti",
         "about" : "Chi sono",
-        "contacts" : "Contatti"
+        "contacts" : "Contatti",
+        "theme" : "Tema",
+        "locale" : "Lingua"
     },
 
     "sections": {

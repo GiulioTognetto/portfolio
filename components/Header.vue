@@ -2,7 +2,7 @@
   <div class="fixed top-2 sm:top-4 inset-x-0 z-50 px-3 sm:px-0 flex justify-center pointer-events-none">
     
     <div class="flex sm:hidden items-center justify-between w-full max-w-md bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-3 py-1.5 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md pointer-events-auto">
-      <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
         <Logo size="md" v-sound="'meow'" />
         <span v-sound class="font-semibold text-xs tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
           {{ t('header.home') }}
@@ -41,7 +41,7 @@
     >
       <template #list-leading>
         <div class="flex items-center gap-2 pr-2">
-          <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Logo size="md" v-sound="'meow'" />
             <span v-sound class="font-semibold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
               {{ t('header.home') }}
@@ -66,7 +66,7 @@
         <div class="p-4 flex flex-col justify-between h-full">
           <div>
             <div class="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800">
-              <NuxtLink to="/" @click="isMenuOpen = false" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <NuxtLink :to="localePath('/')" @click="isMenuOpen = false" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Logo size="sm" v-sound="'meow'" />
                 <span class="font-bold text-sm" v-sound>{{ t('header.home') }}</span>
               </NuxtLink>
@@ -89,13 +89,19 @@
             </nav>
           </div>
 
-          <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
-            <span class="text-xs text-neutral-500">{{ t('header.theme') }}</span>
-            <ColorModeButton @click="isMenuOpen = false" />
-          </div>
-          <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
-            <span class="text-xs text-neutral-500">{{ t('header.locale') }}</span>
-            <LocaleSelector />
+          <!-- Footer dello Slideover -->
+          <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-3">
+            <!-- Selettore della Lingua -->
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-neutral-500">{{ t('header.locale') }}</span>
+              <LocaleSelector />
+            </div>
+
+            <!-- Selettore del Tema -->
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-neutral-500">{{ t('header.theme') }}</span>
+              <ColorModeButton />
+            </div>
           </div>
         </div>
       </template>

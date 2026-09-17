@@ -1,5 +1,5 @@
 <template>
-  <USelectMenu
+  <USelect
     v-model="currentLocale"
     :items="formattedLocales"
     value-key="code"
@@ -15,7 +15,7 @@
     <template #leading="{ modelValue }">
       <UIcon :name="getLocaleIcon(modelValue)" class="w-4 h-4" />
     </template>
-  </USelectMenu>
+  </USelect>
 </template>
 
 <script setup lang="ts">

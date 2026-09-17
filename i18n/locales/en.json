@@ -3,7 +3,9 @@
         "home" : "Home",
         "projects" : "Projects",
         "about" : "About Me",
-        "contacts" : "Contacts"
+        "contacts" : "Contacts",
+        "theme" : "Theme",
+        "locale" : "Language"
     },
 
     "sections": {
