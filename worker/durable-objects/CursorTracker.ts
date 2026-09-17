@@ -14,7 +14,6 @@ interface CursorState {
 }
 
 export class CursorTracker extends DurableObject {
-  // Mappa RAM locale per tenere traccia dell'ultima posizione dei client attivi
   private positions = new Map<string, CursorState>()
 
   override async fetch(request: Request): Promise<Response> {
@@ -73,7 +72,7 @@ export class CursorTracker extends DurableObject {
           })
         )
 
-        // Invia subito lo stato di tutti gli altri cursori già presenti al nuovo arrivato
+        // Invia lo stato degli altri solo se presenti
         for (const [id, state] of this.positions.entries()) {
           if (id !== session.userId) {
             ws.send(
@@ -90,7 +89,7 @@ export class CursorTracker extends DurableObject {
 
       // 2. Move
       if (data.type === 'move') {
-        // Salva l'ultima posizione dell'utente in RAM
+        // Salva sempre la posizione in RAM per i futuri utenti che entreranno
         this.positions.set(session.userId, {
           x: data.x,
           y: data.y,
@@ -98,6 +97,12 @@ export class CursorTracker extends DurableObject {
           route: data.route,
           isMobile: data.isMobile,
         })
+
+        // CONTROLLO: Procedi col broadcast solo se ci sono almeno 2 client connessi
+        const activeSockets = this.ctx.getWebSockets()
+        if (activeSockets.length < 2) {
+          return
+        }
 
         const payload = JSON.stringify({
           type: 'update',
@@ -109,7 +114,7 @@ export class CursorTracker extends DurableObject {
           isMobile: data.isMobile,
         })
 
-        for (const clientWs of this.ctx.getWebSockets()) {
+        for (const clientWs of activeSockets) {
           if (clientWs !== ws && clientWs.readyState === WebSocket.OPEN) {
             clientWs.send(payload)
           }
@@ -124,17 +129,20 @@ export class CursorTracker extends DurableObject {
     const session = ws.deserializeAttachment() as AttachmentData | null
     if (!session) return
 
-    // Pulisci la RAM quando l'utente si disconnette
     this.positions.delete(session.userId)
 
-    const payload = JSON.stringify({
-      type: 'leave',
-      id: session.userId,
-    })
+    const activeSockets = this.ctx.getWebSockets()
+    // Notifica la chiusura agli altri solo se è rimasto qualcuno in ascolto
+    if (activeSockets.length > 0) {
+      const payload = JSON.stringify({
+        type: 'leave',
+        id: session.userId,
+      })
 
-    for (const clientWs of this.ctx.getWebSockets()) {
-      if (clientWs !== ws && clientWs.readyState === WebSocket.OPEN) {
-        clientWs.send(payload)
+      for (const clientWs of activeSockets) {
+        if (clientWs !== ws && clientWs.readyState === WebSocket.OPEN) {
+          clientWs.send(payload)
+        }
       }
     }
   }
