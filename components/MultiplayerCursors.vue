@@ -30,17 +30,16 @@
               />
             </div>
 
-            <!-- Badge con Avatar DiceBear (Mobile) -->
+            <!-- Sostituzione Badge con Solo Avatar Grande (Mobile) -->
             <div
-              class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium text-white shadow-md backdrop-blur-md border border-white/20 select-none whitespace-nowrap"
+              class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-center p-0.5 rounded-full shadow-lg backdrop-blur-md border border-white/40 select-none"
               :style="{ backgroundColor: getBadgeBg(cursor.color) }"
             >
               <img 
                 :src="getDicebearUrl(id)" 
                 alt="Avatar" 
-                class="w-4 h-4 rounded-full bg-white/25 object-cover"
+                class="w-8 h-8 rounded-full bg-white/50 object-cover shadow-inner"
               />
-              <span class="font-mono tracking-tight">{{ id }}</span>
             </div>
           </div>
         </template>
@@ -60,18 +59,16 @@
             />
           </svg>
 
-          <!-- Badge con Avatar DiceBear (Desktop) -->
+          <!-- Sostituzione Badge con Solo Avatar Grande (Desktop) -->
           <div
-            class="ml-4 -mt-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium text-white shadow-lg backdrop-blur-md transition-all duration-150 border border-white/20 select-none"
+            class="ml-3 -mt-2 flex items-center justify-center p-0.5 rounded-full shadow-xl backdrop-blur-md border border-white/40 select-none"
             :style="{ backgroundColor: getBadgeBg(cursor.color) }"
           >
             <img 
               :src="getDicebearUrl(id)" 
               alt="Avatar" 
-              class="w-5 h-5 rounded-full bg-white/25 object-cover"
+              class="w-13 h-13 rounded-full bg-white/50 object-cover shadow-inner"
             />
-
-            <span class="font-mono tracking-tight">{{ id }}</span>
           </div>
         </template>
 
@@ -142,7 +139,8 @@ const updateWindowMetrics = () => {
 
 // Generatore URL DiceBear basato sull'ID utente (seed)
 const getDicebearUrl = (seed: string) => {
-  return `https://api.dicebear.com/7.x/critters/svg?seed=${encodeURIComponent(seed)}`
+  // Stile 'bottts' (Robot) ottimizzato per dimensioni maggiori
+  return `https://api.dicebear.com/10.x/critters/svg?seed=${encodeURIComponent(seed)}&backgroundType=gradientLinear&backgroundColor=b6e3f4,c0aede,d1d4f9`
 }
 
 const renderableCursors = computed(() => {
@@ -272,6 +270,19 @@ watch(
 
 onMounted(() => {
   updateWindowMetrics()
+
+  if (import.meta.dev) {
+    // Inserisce un cursore fittizio dopo 500ms per simulare un utente attivo
+    setTimeout(() => {
+      remoteCursors.value['test-user-99'] = {
+        x: 45, // Posizionato al 45% della larghezza della pagina
+        y: 30, // Posizionato al 30% dell'altezza della pagina
+        color: '#ec4899', // Colore rosa/fucsia di test
+        route: route.path, // Sulla stessa rotta corrente
+        isMobile: false
+      }
+    }, 500)
+  }
   
   window.addEventListener('resize', updateWindowMetrics, { passive: true })
   window.addEventListener('scroll', handleScroll, { passive: true })
