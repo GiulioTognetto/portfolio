@@ -58,14 +58,14 @@ const { t } = useI18n()
 const { playSound } = useSound()
 const localePath = useLocalePath()
 
-const items: NavigationMenuItem[] = [
+const items = computed<NavigationMenuItem[]>(() => [
   {
     icon: "i-lucide-creative-commons",
     label: t('footer.credits'),
     to: localePath('/credits'),
     onSelect: () => playSound('click')
   }, 
-]
+])
 </script>
 
 <style>

@@ -13,7 +13,7 @@
 ## Sections
 
 ### 1. Hero
-![hero](./.github/media/hero.jpg)
+![hero](./.github/media/hero.png)
 
 ### 2. About
 Work in progress...
@@ -22,4 +22,11 @@ Work in progress...
 Work in progress...
 
 ### 4. Contacts 
-![contacts](./.github/media/contacts.jpg)
+![contacts](./.github/media/contacts.png)
+
+### 5. Contacts / Cal.com
+
+![caldotcom](./.github/media/caldotcom.png)
+
+### 5. Credits 
+![credits](./.github/media/credits.png)
