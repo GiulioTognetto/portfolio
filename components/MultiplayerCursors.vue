@@ -30,10 +30,16 @@
               />
             </div>
 
+            <!-- Badge con Avatar DiceBear (Mobile) -->
             <div
-              class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium text-white shadow-md backdrop-blur-md border border-white/20 select-none whitespace-nowrap"
+              class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium text-white shadow-md backdrop-blur-md border border-white/20 select-none whitespace-nowrap"
               :style="{ backgroundColor: getBadgeBg(cursor.color) }"
             >
+              <img 
+                :src="getDicebearUrl(id)" 
+                alt="Avatar" 
+                class="w-4 h-4 rounded-full bg-white/25 object-cover"
+              />
               <span class="font-mono tracking-tight">{{ id }}</span>
             </div>
           </div>
@@ -54,16 +60,16 @@
             />
           </svg>
 
+          <!-- Badge con Avatar DiceBear (Desktop) -->
           <div
             class="ml-4 -mt-2 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium text-white shadow-lg backdrop-blur-md transition-all duration-150 border border-white/20 select-none"
             :style="{ backgroundColor: getBadgeBg(cursor.color) }"
           >
-            <span class="relative flex h-1.5 w-1.5">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"
-              />
-              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
-            </span>
+            <img 
+              :src="getDicebearUrl(id)" 
+              alt="Avatar" 
+              class="w-5 h-5 rounded-full bg-white/25 object-cover"
+            />
 
             <span class="font-mono tracking-tight">{{ id }}</span>
           </div>
@@ -81,8 +87,8 @@ const router = useRouter()
 const getRouteBaseName = useRouteBaseName()
 
 interface RemoteCursor {
-  x: number // Percentuale 0-100 sul totale documento
-  y: number // Percentuale 0-100 sul totale documento
+  x: number 
+  y: number 
   color: string
   route: string
   isMobile?: boolean
@@ -108,7 +114,6 @@ let isCurrentDeviceMobile = false
 let lastPointerPageX = 0
 let lastPointerPageY = 0
 
-// Reattività su Scroll e Resize della finestra
 const windowScrollX = ref(0)
 const windowScrollY = ref(0)
 const documentWidth = ref(1)
@@ -123,7 +128,6 @@ const updateWindowMetrics = () => {
   viewportWidth.value = window.innerWidth
   viewportHeight.value = window.innerHeight
   
-  // Calcolo altezza/larghezza reale del documento
   documentWidth.value = Math.max(
     document.documentElement.scrollWidth,
     document.body.scrollWidth,
@@ -136,7 +140,11 @@ const updateWindowMetrics = () => {
   )
 }
 
-// Computa le posizioni pixel usando il base name della rotta (ignora /it, /en, ecc.)
+// Generatore URL DiceBear basato sull'ID utente (seed)
+const getDicebearUrl = (seed: string) => {
+  return `https://api.dicebear.com/7.x/critters/svg?seed=${encodeURIComponent(seed)}`
+}
+
 const renderableCursors = computed(() => {
   const result: Record<string, RenderableCursor> = {}
   
@@ -147,26 +155,20 @@ const renderableCursors = computed(() => {
   const vW = viewportWidth.value
   const vH = viewportHeight.value
 
-  // Ottiene il nome base della rotta corrente (es. "index") pulito dalla lingua
   const currentBaseName = getRouteBaseName(route)
 
   for (const [id, cursor] of Object.entries(remoteCursors.value)) {
-    // Risolve la stringa della rotta del cursore remoto per estgefere il suo base name in sicurezza
     const resolvedCursorRoute = router.resolve(cursor.route || '/')
     const cursorBaseName = getRouteBaseName(resolvedCursorRoute)
 
-    // FILTRO 1: Salta i cursori che si trovano su pagine/viste differenti
     if (cursorBaseName !== currentBaseName) continue
 
-    // Converti la percentuale del documento in Coordinate Assolute nel Documento (px)
     const docX = (cursor.x / 100) * docW
     const docY = (cursor.y / 100) * docH
 
-    // Converti in Coordinate di Viewport (relative allo schermo fisso inset-0)
     const screenX = docX - sX
     const screenY = docY - sY
 
-    // FILTRO 2: Viewport Culling con margine di tolleranza
     const isVisible =
       screenX >= -50 &&
       screenX <= vW + 50 &&
@@ -211,7 +213,6 @@ const sendPosition = (pageX: number, pageY: number, force = false) => {
   lastPointerPageX = pageX
   lastPointerPageY = pageY
 
-  // Calcolo dinamico preciso delle dimensioni totali scrollabili
   const docW = Math.max(
     document.documentElement.scrollWidth,
     document.body.scrollWidth,
@@ -239,7 +240,6 @@ const sendPosition = (pageX: number, pageY: number, force = false) => {
 }
 
 const handleMouseMove = (e: MouseEvent) => {
-  // e.pageX include e.clientX + window.scrollX
   sendPosition(e.pageX, e.pageY)
 }
 
@@ -250,11 +250,8 @@ const handleTouchMove = (e: TouchEvent) => {
   }
 }
 
-// Gestione eventi di Scroll reattiva senza lag
 const handleScroll = () => {
   updateWindowMetrics()
-  // Se l'utente locale sta scrollando ma non muove il mouse, 
-  // aggiorniamo la nostra posizione relativa inviandola agli altri
   if (lastPointerPageX || lastPointerPageY) {
     sendPosition(lastPointerPageX, lastPointerPageY)
   }
@@ -276,7 +273,6 @@ watch(
 onMounted(() => {
   updateWindowMetrics()
   
-  // Utilizzo di passive: true per performance fluide sullo scroll
   window.addEventListener('resize', updateWindowMetrics, { passive: true })
   window.addEventListener('scroll', handleScroll, { passive: true })
 
