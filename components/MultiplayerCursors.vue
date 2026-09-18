@@ -11,34 +11,38 @@
         <!-- RENDERING MOBILE: Cerchio Tap-Target semitrasparente -->
         <template v-if="cursor.isMobile">
           <div class="relative -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            
+            <!-- Cerchio animato (ping) -->
             <div
               class="absolute h-8 w-8 rounded-full animate-ping opacity-30"
               :style="{ backgroundColor: cursor.color || '#3b82f6' }"
             />
             
+            <!-- Cerchio statico centrale -->
             <div
-              class="h-7 w-7 rounded-full border-2 shadow-lg backdrop-blur-[2px] transition-transform duration-75"
+              class="h-7 w-7 rounded-full border-2 shadow-lg backdrop-blur-[2px]"
               :style="{
                 borderColor: cursor.color || '#3b82f6',
                 backgroundColor: getMobileCircleBg(cursor.color),
                 boxShadow: `0 0 12px ${getMobileCircleBg(cursor.color)}`
               }"
             >
+              <!-- Punto centrale -->
               <div
                 class="absolute inset-0 m-auto h-2 w-2 rounded-full shadow-sm"
                 :style="{ backgroundColor: cursor.color || '#3b82f6' }"
               />
             </div>
 
-            <!-- Sostituzione Badge con Solo Avatar Grande (Mobile) -->
+            <!-- Badge Avatar DiceBear (Mobile) - FIX: Dimensioni fisse e aspect-square -->
             <div
-              class="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-center p-0.5 rounded-full shadow-lg backdrop-blur-md border border-white/40 select-none"
+              class="absolute top-8 left-1/2 -translate-x-1/2 w-12 h-12 aspect-square p-0.5 rounded-full shadow-lg backdrop-blur-md border border-white/40 select-none flex items-center justify-center overflow-hidden"
               :style="{ backgroundColor: getBadgeBg(cursor.color) }"
             >
               <img 
                 :src="getDicebearUrl(id)" 
                 alt="Avatar" 
-                class="w-8 h-8 rounded-full bg-white/50 object-cover shadow-inner"
+                class="w-full h-full rounded-full bg-white/50 object-cover shadow-inner block"
               />
             </div>
           </div>
@@ -275,10 +279,34 @@ onMounted(() => {
     // Inserisce un cursore fittizio dopo 500ms per simulare un utente attivo
     setTimeout(() => {
       remoteCursors.value['test-user-99'] = {
-        x: 45, // Posizionato al 45% della larghezza della pagina
-        y: 30, // Posizionato al 30% dell'altezza della pagina
-        color: '#ec4899', // Colore rosa/fucsia di test
-        route: route.path, // Sulla stessa rotta corrente
+        x: 45,
+        y: 30,
+        color: '#ec4899',
+        route: route.path,
+        isMobile: false
+      }
+
+      remoteCursors.value['test-user-100'] = {
+        x: 65, // Posizionato al 45% della larghezza della pagina
+        y: 15,
+        color: '#ec4899',
+        route: route.path,
+        isMobile: true
+      }
+
+      remoteCursors.value['test-user-101'] = {
+        x: 17,
+        y: 7,
+        color: '#ec4899',
+        route: route.path,
+        isMobile: false
+      }
+
+      remoteCursors.value['test-user-102'] = {
+        x: 50,
+        y: 3,
+        color: '#ec4899',
+        route: route.path,
         isMobile: false
       }
     }, 500)
