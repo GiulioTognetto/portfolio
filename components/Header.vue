@@ -1,13 +1,27 @@
 <template>
   <div class="fixed top-2 sm:top-4 inset-x-0 z-50 px-3 sm:px-0 flex justify-center pointer-events-none">
-    
+    <!-- CursorCounter desktop: pill assoluta a sinistra, nascosta su mobile -->
+    <div class="hidden sm:block absolute left-4 top-0 pointer-events-auto">
+      <MultiplayerCursorCounter
+        class="px-2! py-1! text-xs! gap-1.5! bg-background/95 dark:bg-neutral-900/95 border-neutral-200/80! dark:border-neutral-700/80! text-neutral-600! dark:text-neutral-400! shadow-sm"
+      />
+    </div>
+
+    <!-- Navbar mobile -->
     <div class="flex sm:hidden items-center justify-between w-full max-w-md bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-3 py-1.5 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md pointer-events-auto">
-      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <Logo size="md" v-sound="'meow'" />
-        <span v-sound class="font-semibold text-xs tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
-          {{ t('header.home') }}
-        </span>
-      </NuxtLink>
+      <div class="flex items-center gap-2">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Logo size="md" v-sound="'meow'" />
+          <span v-sound class="font-semibold text-xs tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
+            {{ t('header.home') }}
+          </span>
+        </NuxtLink>
+
+        <!-- CursorCounter mobile: inline accanto al logo -->
+        <MultiplayerCursorCounter
+          class="px-2! py-1! text-xs! gap-1! bg-transparent! border-transparent! text-neutral-500! dark:text-neutral-400! shadow-none!"
+        />
+      </div>
 
       <div class="flex items-center gap-1.5">
         <ColorModeButton />
@@ -26,6 +40,7 @@
         />
       </div>
     </div>
+
 
     <UNavigationMenu
       :items="navLinks"
@@ -115,6 +130,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 import { useSound } from '~/composables/useSound'
 import LocaleSelector from './LocaleSelector.vue'
 import ColorModeButton from './buttons/ColorModeButton.vue'
+import MultiplayerCursorCounter from './multiplayer/CursorCounter.vue'
 
 const isMenuOpen = ref(false)
 const { activeHash, lockObserverTemporarily } = useSectionObserver()

@@ -21,11 +21,16 @@ interface SendPositionOptions {
 }
 
 /**
+ * Stato condiviso a livello modulo: tutti i caller di useCursorWebSocket()
+ * leggono lo stesso ref (singleton), incluso CursorCounter.
+ */
+const remoteCursors = ref<Record<string, RemoteCursor>>({})
+
+/**
  * Gestisce la connessione WebSocket per il sistema di cursori multiplayer.
  * Si occupa di: handshake init, invio posizione, ricezione aggiornamenti e leave.
  */
 export function useCursorWebSocket() {
-  const remoteCursors = ref<Record<string, RemoteCursor>>({})
 
   let ws: WebSocket | null = null
   let myColor = '#ffffff'
