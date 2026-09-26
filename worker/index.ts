@@ -1,4 +1,6 @@
+// @ts-ignore
 import nitroApp from '../.output/server/index.mjs'
+
 import { CursorTracker } from './durable-objects/CursorTracker'
 import { type Env } from '../_cloudflare/env'
 
