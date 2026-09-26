@@ -8,6 +8,7 @@
 import { ref, shallowRef, inject, watch, onMounted, onBeforeUnmount, type ShallowRef } from 'vue'
 import { Scene, Camera, AnimationClip, AnimationAction, AnimationMixer, LoopOnce, LoopRepeat } from 'three'
 import type { GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { useModelLoader } from '~/composables/3d/useModelLoader'
 
 export interface FadeOptions {
   /** Durata del crossfade/fadeIn in secondi */

@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import Header from '~/components/Header.vue';
-import MultiplayerCursors from '~/components/MultiplayerCursors.vue';
+import MultiplayerCursors from '~/components/multiplayer/MultiplayerCursors.vue';
 </script>
 
 <style>
