@@ -54,7 +54,7 @@
           </h1>
           
           <!-- Ruolo con gradiente raffinato -->
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-primary-600 via-primary-500 to-secondary-500 bg-clip-text text-transparent mt-2 sm:mt-3">
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-primary-400 via-primary-500 to-primary-700 bg-clip-text text-transparent mt-2 sm:mt-3">
             {{ t('sections.hero.role') }}
           </h2>
 
