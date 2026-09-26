@@ -17,12 +17,14 @@
       />
     </div>
 
-    <span>{{ totalOnline }} users online</span>
+    <span>{{ totalOnline }} {{ t('components.multiplayer.online-users') }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useCursorWebSocket } from '~/composables/multiplayer/useCursorWebSocket';
+
+const { t } = useI18n()
 
 const { remoteCursors } = useCursorWebSocket()
 

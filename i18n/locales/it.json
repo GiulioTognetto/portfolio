@@ -61,6 +61,12 @@
         }
     },
 
+    "components" : {
+        "multiplayer" : {
+            "online-users" : "utenti online"
+        }
+    },
+
     "footer" : {
         "all-rights-reserved" : "Tutti i diritti riservati",
         "credits" : "Crediti"
