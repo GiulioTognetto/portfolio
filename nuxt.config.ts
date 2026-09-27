@@ -39,8 +39,9 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          src: 'https://app.rybbit.io/api/script.js?siteId=3ddc1a86f100',
-          defer: true
+          src: 'https://cloud.umami.is/script.js',
+          defer: true,
+          'data-website-id': 'eaa6dcab-0d25-47ee-b690-5775421d5914'
         }
       ]
     }
