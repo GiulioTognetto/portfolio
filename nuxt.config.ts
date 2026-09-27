@@ -36,6 +36,12 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: 'icon', type: 'image/svg', href: '/cat-tongue.svg' }
+      ],
+      script: [
+        {
+          src: 'https://app.rybbit.io/api/script.js?siteId=3ddc1a86f100',
+          defer: true
+        }
       ]
     }
   },
