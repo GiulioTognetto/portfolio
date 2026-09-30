@@ -31,7 +31,7 @@
     "nitro-cloudflare-dev": "^0.2.2",
     "nuxt": "^4.5.2",
     "three": "^0.186.0",
-    "vue": "^3.5.42",
+    "vue": "^3.5.43",
     "vue-router": "^5.3.1",
     "wrangler": "^4.140.0"
   },
