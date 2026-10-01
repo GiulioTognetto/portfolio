@@ -17,7 +17,7 @@
         "@nuxtjs/sitemap": "8.5.1",
         "@takumi-rs/core": "^2.13.7",
         "@takumi-rs/wasm": "^2.14.0",
-        "@tresjs/cientos": "^5.9.0",
+        "@tresjs/cientos": "^5.9.1",
         "@tresjs/core": "^5.9.0",
         "@tresjs/nuxt": "^5.7.0",
         "gsap": "^3.15.0",
@@ -814,7 +814,7 @@
 
     "@tiptap/y-tiptap": ["@tiptap/y-tiptap@3.0.7", "", { "dependencies": { "lib0": "^0.2.100" }, "peerDependencies": { "prosemirror-model": "^1.7.1", "prosemirror-state": "^1.2.3", "prosemirror-view": "^1.9.10", "y-protocols": "^1.0.1", "yjs": "^13.5.38" } }, "sha512-3VG01F7i2JDghWsBZSBKi7ypMiN5UVVSyD18IwoXx7ilm0ZynrTS+XNpmgxfuiSBjdauWk7tUlP04xfM8Bw4Vw=="],
 
-    "@tresjs/cientos": ["@tresjs/cientos@5.9.0", "", { "dependencies": { "@vueuse/core": "^14.3.0", "camera-controls": "^3.1.2", "stats-gl": "^4.1.0", "stats.js": "^0.17.0", "three-custom-shader-material": "^6.4.0", "three-mesh-bvh": "^0.9.10", "three-stdlib": "^2.36.1" }, "peerDependencies": { "@tresjs/core": "5.9.0", "three": ">=0.133", "vue": ">=3.5.17" } }, "sha512-ICXzRC9enNTZ9odhfDUg+dHh4nArw/tW3fhpdx0cEGjvJPfv3xCQA1t+8+zxi6iOTN8Ahv0D8ZrKDYnIw6uVIQ=="],
+    "@tresjs/cientos": ["@tresjs/cientos@5.9.1", "", { "dependencies": { "@vueuse/core": "^14.3.0", "camera-controls": "^3.1.2", "stats-gl": "^4.1.0", "stats.js": "^0.17.0", "three-custom-shader-material": "^6.4.0", "three-mesh-bvh": "^0.9.10", "three-stdlib": "^2.36.1" }, "peerDependencies": { "@tresjs/core": "5.9.1", "three": ">=0.133", "vue": ">=3.5.17" } }, "sha512-nKmF0Kk/d/NBgySoPqsBVNkYGPUTwiJST5/mGjRtmWLL0P4+vquzdsB6nRrwlj4XC7oTRBinM1FEdmfN+GPMwQ=="],
 
     "@tresjs/core": ["@tresjs/core@5.9.0", "", { "dependencies": { "@pmndrs/pointer-events": "^6.6.30", "@vue/devtools-api": "^8.1.2", "@vueuse/core": "^14.3.0", "radashi": "^12.9.1" }, "peerDependencies": { "three": ">=0.133", "vue": ">=3.4" } }, "sha512-1kvg/cyoqDwHFqj+5ka54ur17ykSEKvY2VWaxwjLXxU58lVlvWExsTzs3bUCJEn3ExRrVAjjpn00tX3EwgOE2Q=="],
 
