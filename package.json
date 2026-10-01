@@ -33,7 +33,7 @@
     "three": "^0.186.0",
     "vue": "^3.5.43",
     "vue-router": "^5.3.1",
-    "wrangler": "^4.140.0"
+    "wrangler": "^4.142.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
