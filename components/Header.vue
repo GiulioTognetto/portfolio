@@ -81,7 +81,11 @@
         <div class="p-4 flex flex-col justify-between h-full">
           <div>
             <div class="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800">
-              <NuxtLink :to="localePath('/')" @click="isMenuOpen = false" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <NuxtLink 
+                :to="localePath('/')" 
+                @click="onHomeClick" 
+                class="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              >
                 <Logo size="sm" v-sound="'meow'" />
                 <span class="font-bold text-sm" v-sound>{{ t('header.home') }}</span>
               </NuxtLink>
@@ -137,6 +141,13 @@ const { activeHash, lockObserverTemporarily } = useSectionObserver()
 const { t } = useI18n()
 const { playSound } = useSound()
 const localePath = useLocalePath()
+const router = useRouter()
+
+function onHomeClick() {
+  isMenuOpen.value = false
+  activeHash.value = null
+  router.push({ path: localePath('/'), hash: '' })
+}
 
 const links = computed<NavigationMenuItem[]>(() => [
   {
@@ -159,14 +170,23 @@ const links = computed<NavigationMenuItem[]>(() => [
   }
 ])
 
+const extractHash = (to: string | undefined) => {
+  if (!to) return ''
+  const match = to.match(/#.*$/)
+  return match ? match[0] : ''
+}
+
 const navLinks = computed(() =>
-  links.value.map(link => ({
-    ...link,
-    active: activeHash.value === (link.to as string).replace("/", ""),
-    onSelect: () => {
-      lockObserverTemporarily(link.to as string)
-      playSound('click')
+  links.value.map(link => {
+    const linkHash = extractHash(link.to as string)
+    return {
+      ...link,
+      active: activeHash.value === linkHash,
+      onSelect: () => {
+        lockObserverTemporarily(link.to as string)
+        playSound('click')
+      }
     }
-  }))
+  })
 )
 </script>

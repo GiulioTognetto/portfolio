@@ -2,7 +2,7 @@ import { onUnmounted } from 'vue'
 
 // 1. Stato globale reattivo condiviso tra tutte le chiamate del composable
 export function useSectionObserver() {
-  const activeHash = useState<string>('active-section-hash', () => '')
+  const activeHash = useState<string | null>('active-section-hash', () => null)
 
   // Variabili di istanza per il blocco click
   const isClickScrolling = useState<boolean>('is-click-scrolling', () => false)
@@ -17,7 +17,7 @@ export function useSectionObserver() {
       : window.location.pathname
 
     if (window.location.hash !== newHash) {
-      window.history.replaceState(null, '', newUrl)
+      window.history.replaceState({ ...history.state }, '', newUrl)
     }
   }
 
