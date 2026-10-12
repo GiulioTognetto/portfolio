@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    githubToken: process.env.GITHUB_TOKEN,
+    githubUsername: process.env.GITHUB_USERNAME,
+  },
+
   css: ['~/assets/css/main.css'],
 
   site: {

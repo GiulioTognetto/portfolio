@@ -6,6 +6,9 @@
 	"compatibility_flags": [
 		"nodejs_compat_v2"
 	],
+	"vars" : {
+		"GITHUB_USERNAME" : "GiulioTognetto",
+	},
 	"placement": {
 		"mode": "smart"
 	},
