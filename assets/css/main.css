@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@import "./base.css";
+
 :root {
   --font-sans: 'Pretendard Std Variable', sans-serif;
   --font-mono: 'Fira Code', monospace;
