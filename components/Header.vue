@@ -128,7 +128,7 @@
 import { ref, computed } from 'vue'
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { useSound } from '~/composables/useSound'
-import LocaleSelector from './LocaleSelector.vue'
+import LocaleSelector from './misc/LocaleSelector.vue'
 import ColorModeButton from './buttons/ColorModeButton.vue'
 import MultiplayerCursorCounter from './multiplayer/CursorCounter.vue'
 

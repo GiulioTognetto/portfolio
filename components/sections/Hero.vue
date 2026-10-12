@@ -4,7 +4,26 @@
     <!-- Background Accents (Più sfumati ed eleganti) -->
     <div class="absolute -top-48 -left-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
     <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-primary-600/15 dark:bg-primary-500/10 rounded-full blur-[140px] pointer-events-none z-0 transition-all duration-300" />
-    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] bg-size-[36px_36px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+    
+    <ClientOnly>
+      <div 
+        class="absolute z-0 w-full h-full transition-opacity duration-1000 ease-out"
+        :class="isLoaded ? 'opacity-100' : 'opacity-0'"
+      >
+        <DotBackground
+          class="w-full h-full"
+          :dot-color="isDark ? 'var(--color-primary-50)' : 'var(--color-secondary-600)'"
+          :opacity="isDark ? 0.10 : 0.15"
+          :spacing="36"
+          :dot-radius="1.7"
+          :repel-radius="120"
+          :repel-strength="20"
+          :return-speed="0.08"
+          :vignette="true"
+        />
+      </div>
+    </ClientOnly>
 
     <!-- Viewport 3D: h-[65vh] solo su mobile, h-full da desktop (lg) in poi -->
     <div class="absolute top-14 left-0 w-full h-[65vh] lg:top-0 lg:w-1/2 lg:h-full lg:left-auto lg:right-0 z-0 pointer-events-auto">
@@ -112,7 +131,8 @@ import Viewer from '~/components/3d/Viewer.vue'
 import Scene from '~/components/3d/Scene.vue'
 import Model from '~/components/3d/Model.vue'
 import Camera from '~/components/3d/Camera.vue'
-import Controls from '~/components/3d/Controls.vue'
+
+import DotBackground from '~/components/misc/DotBackground.vue'
 
 const techStack = ref<string[]>(['Rust', 'Python', 'Vue', 'Nuxt', 'TypeScript'])
 
@@ -120,6 +140,10 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 const { playSound } = useSound()
 
+const colorMode = useColorMode()
+const isDark = computed(() => colorMode.value === 'dark')
+
+const isLoaded = ref(false)
 const isMobile = ref(false)
 
 function checkMobile() {
@@ -127,6 +151,9 @@ function checkMobile() {
 }
 
 onMounted(() => {
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 50)
   checkMobile()
   window.addEventListener('resize', checkMobile)
   impactType.value = Math.random() < 0.5 ? 'landing' : 'flat'

@@ -1,8 +1,24 @@
 <template>
   <section id="contact" class="relative min-h-screen flex items-center justify-center overflow-hidden py-12">
-    <!-- Glow di sfondo ottimizzato e fluido -->
-    <div class="absolute inset-0 bg-[radial-gradient(var(--color-primary-500)_2px,transparent_2px)] dark:bg-[radial-gradient(var(--color-primary-400)_2px,transparent_2px)] bg-size-[36px_36px] opacity-15 dark:opacity-10 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
-  
+    <ClientOnly>
+      <div 
+        class="absolute z-0 w-full h-full transition-opacity duration-1000 ease-out"
+        :class="isLoaded ? 'opacity-100' : 'opacity-0'"
+      >
+        <DotBackground
+          class="w-full h-full"
+          :dot-color="isDark ? 'var(--color-primary-50)' : 'var(--color-secondary-600)'"
+          :opacity="isDark ? 0.10 : 0.15"
+          :spacing="36"
+          :dot-radius="1.7"
+          :repel-radius="120"
+          :repel-strength="20"
+          :return-speed="0.08"
+          :vignette="true"
+        />
+      </div>
+    </ClientOnly>
+
     <!-- Glow centrale regolato per essere visibile sia in light che in dark mode -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60dvw] h-[60dvw] max-w-200 max-h-200 pointer-events-none z-0 opacity-60 dark:opacity-35 blur-[120px] transform-gpu">
       <div class="absolute inset-0 rounded-full bg-linear-to-bl from-primary-800/80 via-primary-400/50 to-transparent dark:from-primary-400/40 dark:via-primary-600/20 dark:to-transparent" />
@@ -50,7 +66,19 @@
 </template>
 
 <script setup lang="ts">
+import DotBackground from '~/components/misc/DotBackground.vue'
 import BookACall from '~/components/buttons/BookACall.vue'
+
+const colorMode = useColorMode()
+const isDark = computed(() => colorMode.value === 'dark')
+
+const isLoaded = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 50)
+})
 
 const { t } = useI18n()
 </script>
