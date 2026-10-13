@@ -3,14 +3,19 @@ import type { Repository } from '~/types/repository'
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
-  if (!config.githubToken) {
+  const cloudflareEnv = event.context.cloudflare?.env as Record<string, any> | undefined
+  
+  const token = config.githubToken || cloudflareEnv?.GITHUB_TOKEN || process.env.GITHUB_TOKEN
+  const username = config.githubUsername || cloudflareEnv?.GITHUB_USERNAME || process.env.GITHUB_USERNAME
+
+  if (!token) {
     throw createError({ statusCode: 500, statusMessage: 'GitHub token non configurato nelle variabili d\'ambiente' })
   }
 
   try {
     const repos: Repository[] = await $fetch('https://api.github.com/user/repos', {
       headers: {
-        Authorization: `Bearer ${config.githubToken}`,
+        Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
         'User-Agent': `Portfolio (giuliotognetto.dev)`
       },
