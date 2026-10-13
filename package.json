@@ -48,7 +48,7 @@
     "@typescript-eslint/parser": "^8.71.0",
     "eslint": "^10.11.0",
     "eslint-plugin-vue": "^10.11.1",
-    "sst": "^4.17.1",
+    "sst": "^4.17.2",
     "typescript": "~7.0.2",
     "vue-tsc": "^3.3.12"
   },
