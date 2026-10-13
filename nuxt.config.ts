@@ -4,8 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
-    githubToken: process.env.GITHUB_TOKEN,
-    githubUsername: process.env.GITHUB_USERNAME,
+    githubToken: '',
+    githubUsername: '',
   },
 
   css: ['~/assets/css/main.css'],
