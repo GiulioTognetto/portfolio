@@ -8,6 +8,9 @@ on:
     - completed
     branches:
     - main
+    paths-ignore:
+      - 'package.json'
+      - 'bun.lock'
 
 jobs:
   deploy:
