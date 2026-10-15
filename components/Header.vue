@@ -3,12 +3,12 @@
     <!-- CursorCounter desktop: pill assoluta a sinistra, nascosta su mobile -->
     <div class="hidden sm:block absolute left-4 top-0 pointer-events-auto">
       <MultiplayerCursorCounter
-        class="px-2! py-1! text-xs! gap-1.5! bg-background/95 dark:bg-neutral-900/95 border-neutral-200/80! dark:border-neutral-700/80! text-neutral-600! dark:text-neutral-400! shadow-sm"
+        class="px-2! py-1! text-xs! gap-1.5! bg-neutral-100/80 dark:bg-neutral-900/80 border-neutral-200/80! dark:border-neutral-700/80! text-neutral-600! dark:text-neutral-400! shadow-sm"
       />
     </div>
 
     <!-- Navbar mobile -->
-    <div class="flex sm:hidden items-center justify-between w-full max-w-md bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-3 py-1.5 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md pointer-events-auto">
+    <div class="flex sm:hidden items-center justify-between w-full max-w-md bg-neutral-100/50 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-3 py-1.5 border-2 border-neutral-200/80 dark:border-neutral-700/80 shadow-md pointer-events-auto">
       <div class="flex items-center gap-2">
         <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <Logo size="md" v-sound="'meow'" />
@@ -46,7 +46,7 @@
       :items="navLinks"
       variant="pill"
       color="primary"
-      class="hidden sm:flex bg-background/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-full px-5 py-1 border border-neutral-200/80 dark:border-neutral-700/80 shadow-sm max-w-max items-center pointer-events-auto"
+      class="hidden sm:flex bg-neutral-100/80 dark:bg-neutral-900/80 backdrop-blur-sm rounded-full px-5 py-1 border border-neutral-200/80 dark:border-neutral-700/80 shadow-sm max-w-max items-center pointer-events-auto"
       :ui="{
         root: 'relative',
         item: 'mx-0.5',

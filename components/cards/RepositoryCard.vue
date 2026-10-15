@@ -19,7 +19,11 @@
           loading="lazy"
           @error="hasImageError = true"
         />
-        <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-transparent" />
+        <!-- Gradiente meno scuro e con dissolvenza in apertura -->
+        <div
+          class="absolute inset-0 bg-linear-to-t from-black/65 via-black/20 to-transparent transition-opacity duration-300"
+          :class="isOpen ? 'opacity-0' : 'opacity-100'"
+        />
       </div>
 
       <!-- Titolo, descrizione, topics e badge: visibili a card chiusa -->
@@ -61,7 +65,7 @@
             v-for="topic in topics"
             :key="topic"
             variant="subtle"
-            size="lg"
+            size="md"
             class="bg-white/20 dark:bg-neutral-800/60 backdrop-blur-md text-white dark:text-neutral-200 border-0"
           >
             {{ topic }}
@@ -126,12 +130,12 @@
         <!-- Sezione Linguaggi (se in caricamento o con dati) -->
         <div v-if="languagesPending || (!languagesError && languageBreakdown.length > 0)" class="mt-auto min-h-0 rounded-xl bg-neutral-200/80 p-2.5 dark:bg-neutral-800/80">
           <div class="mb-2 flex items-center justify-between text-[11px] font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-            <span>Linguaggi</span>
+            <span>Languages</span>
           </div>
 
           <div v-if="languagesPending" class="flex items-center justify-center py-2 text-xs text-neutral-600 dark:text-neutral-300">
             <UIcon name="i-heroicons-arrow-path" class="mr-2 size-4 animate-spin" />
-            Caricamento linguaggi...
+            Loading languages...
           </div>
           <template v-else>
             <div class="flex h-2 w-full overflow-hidden rounded-full bg-neutral-300 dark:bg-neutral-700">
@@ -161,11 +165,11 @@
           </div>
           <div class="flex flex-wrap gap-1">
             <UBadge
-              v-for="topic in repo.topics"
+              v-for="topic in topics"
               :key="topic"
               color="neutral"
               variant="subtle"
-              size="sm"
+              size="lg"
             >
               {{ topic }}
             </UBadge>
@@ -195,7 +199,7 @@ const { repo } = defineProps<{
   repo: Repository
 }>()
 
-const MAX_TOPICS = 4
+const MAX_TOPICS = 5
 
 const fallbackImage = '/images/github-repo-template.png'
 const isOpen = ref(false)
@@ -220,8 +224,12 @@ const licenseLabel = computed(() => {
 })
 
 const repositorySize = computed(() => {
-  const mb = (repo.size ?? 0) / 1024
-  return mb > 0 && mb < 0.1 ? '< 0.1 MB' : `${mb.toFixed(1)} MB`
+  const kb = repo.size ?? 0
+  if (kb < 1024) {
+    return `${kb} KB`
+  }
+  const mb = kb / 1024
+  return `${mb.toFixed(1)} MB`
 })
 
 const languageBreakdown = computed(() => {
