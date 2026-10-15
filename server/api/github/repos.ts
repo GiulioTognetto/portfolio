@@ -1,6 +1,6 @@
 import type { Repository } from '~/types/repository'
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
   const cloudflareEnv = event.context.cloudflare?.env as Record<string, any> | undefined
@@ -33,4 +33,8 @@ export default defineEventHandler(async (event) => {
       statusMessage: error.message || 'Errore durante il recupero delle repository da GitHub'
     })
   }
+}, {
+  maxAge: 60 * 60, // La cache dura 1 ora (in secondi).
+  swr: true,       // Stale-While-Revalidate: serve la versione in cache istantaneamente e aggiorna in background
+  name: 'github-repos-cache'
 })

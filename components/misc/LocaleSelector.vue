@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 const { locale, setLocale, locales } = useI18n()
+const { lockObserverTemporarily, activeHash } = useSectionObserver()
 
 const formattedLocales = computed(() => {
   return (locales.value).map((l) => ({
@@ -33,8 +34,14 @@ function getLocaleIcon(code: string): string {
   return (locales.value.find((locale) => locale.code as string === code) as any).icon
 }
 
+async function changeLocale(code: string) {
+  lockObserverTemporarily('')
+  activeHash.value = null
+  await setLocale(code as any)
+}
+
 const currentLocale = computed({
   get: () => locale.value,
-  set: (val) => setLocale(val)
+  set: (val) => changeLocale(val)
 })
 </script>
