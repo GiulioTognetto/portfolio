@@ -6,7 +6,7 @@
     :aria-label="`${isOpen ? 'Nascondi' : 'Mostra'} i dettagli di ${repo.name}`"
     @click="toggle"
   >
-    <div class="absolute inset-0 overflow-hidden rounded-2xl border-2 border-neutral-200/80 dark:border-neutral-700/80 bg-neutral-900 duration-300">
+    <div class="absolute inset-0 overflow-hidden rounded-2xl border-3 border-neutral-200/80 dark:border-neutral-600/80 bg-neutral-900 duration-300">
       <!-- Immagine: a riposo riempie la card, quando è aperta si riduce a rettangolo sopra il pannello -->
       <div
         class="absolute inset-x-0 top-0 overflow-hidden transition-[height] duration-500 ease-out"
@@ -158,18 +158,18 @@
           </template>
         </div>
 
-        <!-- Se fallback: mostra i topics completi nel pannello se i linguaggi falliscono/non ci sono -->
+        <!-- Se fallback: mostra tutti i topics nel pannello se i linguaggi falliscono/non ci sono -->
         <div v-else-if="!languagesPending && (languagesError || !languageBreakdown.length) && repo.topics?.length" class="mt-auto min-h-0 rounded-xl bg-neutral-200/80 p-2.5 dark:bg-neutral-800/80">
           <div class="mb-2 text-[11px] font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             <span>Topics</span>
           </div>
-          <div class="flex flex-wrap gap-1">
+          <div class="flex max-h-24 flex-wrap gap-1 overflow-y-auto pr-1">
             <UBadge
-              v-for="topic in topics"
+              v-for="topic in repo.topics"
               :key="topic"
               color="neutral"
               variant="subtle"
-              size="lg"
+              size="sm"
             >
               {{ topic }}
             </UBadge>
