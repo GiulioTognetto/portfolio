@@ -12,41 +12,45 @@
 
     <template #right>
       <UButton
-        v-sound
-        icon="i-simple-icons-discord"
-        color="neutral"
-        variant="ghost"
-        to="https://discord.com/users/778017089230209045"
-        target="_blank"
-        aria-label="Discord"
-      />
-      <UButton
-        v-sound
-        icon="i-simple-icons-instagram"
-        color="neutral"
-        variant="ghost"
-        to="https://www.instagram.com/giulio.tognetto"
-        target="_blank"
-        aria-label="Instagram"
-      />
-      <UButton
-        v-sound
-        icon="i-simple-icons-linkedin"
-        color="neutral"
-        variant="ghost"
-        to="https://www.linkedin.com/in/giuliotognetto/"
-        target="_blank"
-        aria-label="LinkedIn"
-      />
-      <UButton
-        v-sound
-        icon="i-simple-icons-github"
-        color="neutral"
-        variant="ghost"
-        to="https://github.com/GiulioTognetto"
-        target="_blank"
-        aria-label="GitHub"
-      />
+          v-sound
+          icon="i-simple-icons-discord"
+          color="neutral"
+          variant="ghost"
+          to="https://discord.com/users/778017089230209045"
+          target="_blank"
+          aria-label="Discord"
+          class="hover:text-primary-500 hover:bg-primary-500/10 transition-colors"
+        />
+        <UButton
+          v-sound
+          icon="i-simple-icons-instagram"
+          color="neutral"
+          variant="ghost"
+          to="https://www.instagram.com/giulio.tognetto"
+          target="_blank"
+          aria-label="Instagram"
+          class="hover:text-primary-500 hover:bg-primary-500/10 transition-colors"
+        />
+        <UButton
+          v-sound
+          icon="i-simple-icons-linkedin"
+          color="neutral"
+          variant="ghost"
+          to="https://www.linkedin.com/in/giuliotognetto/"
+          target="_blank"
+          aria-label="LinkedIn"
+          class="hover:text-primary-500 hover:bg-primary-500/10 transition-colors"
+        />
+        <UButton
+          v-sound
+          icon="i-simple-icons-github"
+          color="neutral"
+          variant="ghost"
+          to="https://github.com/GiulioTognetto"
+          target="_blank"
+          aria-label="GitHub"
+          class="hover:text-primary-500 hover:bg-primary-500/10 transition-colors"
+        />
     </template>
   </UFooter>
 </template>
