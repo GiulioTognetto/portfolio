@@ -14,7 +14,7 @@
       <UButton
         v-sound
         icon="i-simple-icons-discord"
-        color="primary"
+        color="neutral"
         variant="ghost"
         to="https://discord.com/users/778017089230209045"
         target="_blank"
@@ -23,7 +23,7 @@
       <UButton
         v-sound
         icon="i-simple-icons-instagram"
-        color="primary"
+        color="neutral"
         variant="ghost"
         to="https://www.instagram.com/giulio.tognetto"
         target="_blank"
@@ -32,7 +32,7 @@
       <UButton
         v-sound
         icon="i-simple-icons-linkedin"
-        color="primary"
+        color="neutral"
         variant="ghost"
         to="https://www.linkedin.com/in/giuliotognetto/"
         target="_blank"
@@ -41,7 +41,7 @@
       <UButton
         v-sound
         icon="i-simple-icons-github"
-        color="primary"
+        color="neutral"
         variant="ghost"
         to="https://github.com/GiulioTognetto"
         target="_blank"

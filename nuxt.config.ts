@@ -100,6 +100,10 @@ export default defineNuxtConfig({
     preset: "cloudflare-durable",
     tracingChannel: true,
 
+    cloudflareDev: {
+      configPath: 'wrangler.dev.jsonc',
+    },
+
     experimental: {
       tasks: true,
       websocket: true,

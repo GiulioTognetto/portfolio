@@ -1,6 +1,6 @@
 /// <reference types="../worker-configuration.d.ts" />
 
-import { CursorTracker } from '../server/durable-objects/CursorTracker'
+import { CursorTracker } from '../worker/durable-objects/CursorTracker'
 
 export interface Env {
   CURSOR_TRACKER: DurableObjectNamespace<CursorTracker>
