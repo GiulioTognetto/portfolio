@@ -56,7 +56,7 @@
     >
       <template #list-leading>
         <div class="flex items-center gap-2 pr-2">
-          <NuxtLink :to="localePath('/')" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <NuxtLink :to="{ path: localePath('/'), hash: '' }" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Logo size="md" v-sound="'meow'" />
             <span v-sound class="font-semibold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 whitespace-nowrap">
               {{ t('header.home') }}
@@ -82,7 +82,7 @@
           <div>
             <div class="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800">
               <NuxtLink 
-                :to="localePath('/')" 
+                :to="{ path: localePath('/'), hash: '' }"
                 @click="onHomeClick" 
                 class="flex items-center gap-2 hover:opacity-80 transition-opacity"
               >
@@ -94,7 +94,7 @@
             <nav class="flex flex-col gap-2">
               <NuxtLink
                 v-for="item in links"
-                :key="item.to as string"
+                :key="(item.to as string)"
                 :to="item.to"
                 v-sound
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -142,49 +142,66 @@ const { t } = useI18n()
 const { playSound } = useSound()
 const localePath = useLocalePath()
 const router = useRouter()
+const route = useRoute()
 
 function onHomeClick() {
   isMenuOpen.value = false
   activeHash.value = null
-  router.push({ path: localePath('/'), hash: '' })
+  if (route.path === localePath('/')) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 }
 
 const links = computed<NavigationMenuItem[]>(() => [
   {
     label: t('header.projects'),
     icon: 'i-lucide-folder-git-2',
-    to: localePath('/#projects'),
+    to: { path: localePath('/'), hash: '#projects' },
     exactHash: true,
   },
   {
     label: t('header.about'),
     icon: 'i-heroicons-user',
-    to: localePath('/#about'),
+    to: { path: localePath('/'), hash: '#about' },
     exactHash: true,
   },
   {
     label: t('header.contacts'),
     icon: 'i-heroicons-envelope',
-    to: localePath('/#contact'),
+    to:  { path: localePath('/'), hash: '#contact' },
     exactHash: true,
   }
 ])
 
-const extractHash = (to: string | undefined) => {
-  if (!to) return ''
-  const match = to.match(/#.*$/)
-  return match ? match[0] : ''
-}
-
 const navLinks = computed(() =>
   links.value.map(link => {
-    const linkHash = extractHash(link.to as string)
+    const targetHash = (link.to as any).hash
     return {
       ...link,
-      active: activeHash.value === linkHash,
-      onSelect: () => {
-        lockObserverTemporarily(link.to as string)
+      active: activeHash.value === targetHash && route.path === localePath('/'),
+      onSelect: (e?: Event) => {
+        lockObserverTemporarily(targetHash)
         playSound('click')
+
+        const homePath = localePath('/')
+
+        // Se siamo già nella home, scrolliamo direttamente in modo fluido
+        if (route.path === homePath) {
+          const el = document.querySelector(targetHash)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
+          }
+        } else {
+          // Se siamo in un'altra pagina (es. /credits), navighiamo alla home e poi scrolliamo
+          router.push({ path: homePath, hash: targetHash }).then(() => {
+            setTimeout(() => {
+              const el = document.querySelector(targetHash)
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' })
+              }
+            }, 150)
+          })
+        }
       }
     }
   })

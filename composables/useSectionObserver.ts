@@ -1,15 +1,11 @@
-import { onUnmounted } from 'vue'
+import { onUnmounted, onMounted } from 'vue'
 
-// 1. Stato globale reattivo condiviso tra tutte le chiamate del composable
 export function useSectionObserver() {
   const activeHash = useState<string | null>('active-section-hash', () => null)
-
-  // Variabili di istanza per il blocco click
   const isClickScrolling = useState<boolean>('is-click-scrolling', () => false)
   let clickTimeout: ReturnType<typeof setTimeout> | null = null
   let observer: IntersectionObserver | null = null
 
-  // Sincronizza l'hash e la storia dell'URL
   const updateHash = (newHash: string) => {
     activeHash.value = newHash
     const newUrl = newHash
@@ -21,7 +17,6 @@ export function useSectionObserver() {
     }
   }
 
-  // Sblocca/Blocca temporaneamente l'observer ai click nei link del menu
   const lockObserverTemporarily = (targetHash?: string) => {
     isClickScrolling.value = true
 
@@ -35,16 +30,22 @@ export function useSectionObserver() {
     }, 800)
   }
 
-  // 2. Metodo per inizializzare l'observer (da chiamare SOLO nel layout o nella pagina principale)
   const initObserver = (
     sectionIds: string[],
     threshold: number = 0.0,
     rootMargin: string = '-20% 0px -60% 0px'
   ) => {
     onMounted(() => {
-      // Inizializza l'hash al caricamento della pagina
+      // 1. Gestione dell'hash iniziale all'atterraggio sulla pagina
       if (window.location.hash) {
         activeHash.value = window.location.hash
+        // Forza lo scroll alla sezione se presente nell'URL
+        setTimeout(() => {
+          const el = document.querySelector(window.location.hash)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
       }
 
       observer = new IntersectionObserver(
