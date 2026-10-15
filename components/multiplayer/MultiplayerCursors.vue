@@ -7,12 +7,12 @@
         class="absolute left-0 top-0 transition-transform ease-out will-change-transform duration-75"
         :style="{ transform: `translate3d(${cursor.screenX}px, ${cursor.screenY}px, 0)` }"
       >
-        <CursorMobile
+        <LazyCursorMobile
           v-if="cursor.isMobile"
           :user-id="String(id)"
           :color="cursor.color || '#3b82f6'"
         />
-        <CursorDesktop
+        <LazyCursorDesktop
           v-else
           :user-id="String(id)"
           :color="cursor.color || '#3b82f6'"
@@ -24,10 +24,11 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import CursorMobile from './CursorMobile.vue'
-import CursorDesktop from './CursorDesktop.vue'
 import { useCursorMetrics } from '~/composables/multiplayer/useCursorMetrics.ts'
 import { useCursorWebSocket } from '~/composables/multiplayer/useCursorWebSocket.ts'
+
+const LazyCursorMobile = defineAsyncComponent(() => import('./CursorMobile.vue'))
+const LazyCursorDesktop = defineAsyncComponent(() => import('./CursorDesktop.vue'))
 
 const router = useRouter()
 const getRouteBaseName = useRouteBaseName()

@@ -24,7 +24,7 @@ useSeoMeta({
   ogTitle: t('pages.index.meta.ogtitle'),
   ogDescription: t('pages.index.meta.ogdescription'),
   ogImage: 'https://giuliotognetto.dev/og-image.png',
-  ogUrl: 'https://giuliotognetto.dev',
+  ogUrl: 'https://giuliotognetto.dev/',
   ogType: 'website',
 
   // Twitter Card

@@ -29,7 +29,7 @@
 
     <!-- Carosello Full-Width con UCarousel -->
     <div v-else-if="repos && repos.length > 0" class="relative w-full py-8 user-select-none">
-      <UCarousel 
+      <LazyUCarousel
         :items="repos" 
         dots
         auto-scroll
@@ -38,20 +38,26 @@
         skip-snap
         drag-free
         :autoplay="{ delay: 1000, stopOnFocusIn: true, stopOnMouseEnter: true }"
-        class="w-full mx-auto px-4 user-select-none"
+        class="w-full mx-auto px-4 user-select-none lg:hidden"
         :ui="{
           dots: 'flex justify-start gap-2 mt-6 ml-10',
           dot: 'w-6 h-1',
-          item: 'basis-[70%] transition-opacity dark:[&:not(.is-snapped)]:opacity-50 [&:not(.is-snapped)]:opacity-60 basis-full sm:basis-[420px] lg:basis-[460px] px-4 py-6',
+          item: 'basis-[92%] transition-opacity dark:[&:not(.is-snapped)]:opacity-50 [&:not(.is-snapped)]:opacity-60 basis-full sm:basis-[540px] lg:basis-[560px] px-2 py-4',
           container: 'items-center',
         }"
       >
         <template #default="{ item }">
           <div class="carousel-card-wrapper flex justify-center transition-all duration-300">
-            <RepositoryCard :repo="item" />
+            <LazyRepositoryCard :repo="item" />
           </div>
         </template>
-      </UCarousel>
+      </LazyUCarousel>
+
+      <UContainer class="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
+        <div v-for="item in repos" :key="item.id" class="flex justify-center">
+          <LazyRepositoryCard :repo="item" />
+        </div>
+      </UContainer>
     </div>
 
     <!-- Nessuna repository trovata -->
@@ -62,10 +68,10 @@
 </template>
 
 <script setup lang="ts">
-import RepositoryCard from '~/components/cards/RepositoryCard.vue'
 import type { Repository } from '~/types/repository'
 const { t } = useI18n()
 
+const LazyRepositoryCard = defineAsyncComponent(() => import('~/components/cards/RepositoryCard.vue'))
 const { data: allRepos, pending, error } = await useFetch<Repository[]>('/api/github/repos')
 
 const featuredRepoNames = [
@@ -75,7 +81,10 @@ const featuredRepoNames = [
   'BrickUIWeb',
   'BrickUIApp',
   'RelayRouter',
-  'StudyHive'
+  'StudyHive',
+  'RelayRouter',
+  'GGsBot.rs',
+  'my.arch.config'
 ]
 
 const repos = computed(() => {
