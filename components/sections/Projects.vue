@@ -35,14 +35,13 @@
         auto-scroll
         class-names
         loop
-        skip-snap
         drag-free
-        :autoplay="{ delay: 1000, stopOnFocusIn: true, stopOnMouseEnter: true }"
-        class="w-full mx-auto px-4 user-select-none lg:hidden"
+        :autoplay="{ delay: 800, stopOnFocusIn: true, stopOnMouseEnter: true }"
+        class="w-full mx-auto px-4 user-select-none"
         :ui="{
           dots: 'flex justify-start gap-2 mt-6 ml-10',
           dot: 'w-6 h-1',
-          item: 'basis-[92%] transition-opacity dark:[&:not(.is-snapped)]:opacity-50 [&:not(.is-snapped)]:opacity-60 basis-full sm:basis-[540px] lg:basis-[560px] px-2 py-4',
+          item: 'basis-[92%] transition-opacity basis-full sm:basis-[540px] lg:basis-[560px] px-2 py-4',
           container: 'items-center',
         }"
       >
@@ -52,12 +51,6 @@
           </div>
         </template>
       </LazyUCarousel>
-
-      <UContainer class="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
-        <div v-for="item in repos" :key="item.id" class="flex justify-center">
-          <LazyRepositoryCard :repo="item" />
-        </div>
-      </UContainer>
     </div>
 
     <!-- Nessuna repository trovata -->
