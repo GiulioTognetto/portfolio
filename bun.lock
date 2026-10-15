@@ -16,7 +16,7 @@
         "@nuxtjs/seo": "^5.3.16",
         "@nuxtjs/sitemap": "8.6.1",
         "@takumi-rs/core": "^2.15.0",
-        "@takumi-rs/wasm": "^2.14.0",
+        "@takumi-rs/wasm": "^2.15.1",
         "@tresjs/cientos": "^5.9.1",
         "@tresjs/core": "^5.9.2",
         "@tresjs/nuxt": "^5.7.3",
@@ -733,7 +733,7 @@
 
     "@takumi-rs/helpers": ["@takumi-rs/helpers@2.15.0", "", { "peerDependencies": { "preact": "^10.0.0 || ^11.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["preact", "react"] }, "sha512-eb9zVdYCky4l6MPdHb1SFURWw3Nbfx+PIipZh+YAhfv1j0a8+mD2BWn0sqtFieyRgjlDRG19Wu9Oa+iQQSJPVg=="],
 
-    "@takumi-rs/wasm": ["@takumi-rs/wasm@2.14.0", "", { "dependencies": { "@takumi-rs/helpers": "2.14.0" }, "peerDependencies": { "csstype": "*" }, "optionalPeers": ["csstype"] }, "sha512-ncaNPVl9CL47g5eOyQp1kMPzc0GsUDbQdxRURvNBzMpUC2u6ImeMwJN6ZXiu3tqfSVgYZP1aU0Ntkg+q1S2d4g=="],
+    "@takumi-rs/wasm": ["@takumi-rs/wasm@2.15.1", "", { "dependencies": { "@takumi-rs/helpers": "2.15.1" }, "peerDependencies": { "csstype": "*" }, "optionalPeers": ["csstype"] }, "sha512-00375zz2cBqQhgUEIc8BMEgY7/v5kE55XV0FvVRL7WG7jynjkaA/Rbdqsqcv6WWJ3pa3G1X5+bZZO5/me/WsPQ=="],
 
     "@tanstack/table-core": ["@tanstack/table-core@8.21.3", "", {}, "sha512-ldZXEhOBb8Is7xLs01fR3YEc3DERiz5silj8tnGkFZytt1abEvl/GhUmCE0PMLaMPTa3Jk4HbKmRlHmu+gCftg=="],
 
@@ -2417,7 +2417,7 @@
 
     "@tailwindcss/oxide-wasm32-wasi/tslib": ["tslib@2.8.1", "", { "bundled": true }, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
-    "@takumi-rs/wasm/@takumi-rs/helpers": ["@takumi-rs/helpers@2.14.0", "", { "peerDependencies": { "preact": "^10.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["preact", "react"] }, "sha512-jFIpuWfBMAxlULx3tEk2V+FCs1CLOMo2/c7h3I2P+eNzMmxwE9TJ/BtwJVghnLlFW1M88QW/ZOY/E7MqXACWJA=="],
+    "@takumi-rs/wasm/@takumi-rs/helpers": ["@takumi-rs/helpers@2.15.1", "", { "peerDependencies": { "preact": "^10.0.0 || ^11.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["preact", "react"] }, "sha512-kj96NKmVUpy0q0VBb6lXcFj/pVZqbprPYMak4fSGxl3UYGyn6aj7VNxjuPtCHjFNAwrHXj90mqIqF112JdHMug=="],
 
     "@tresjs/core/@vueuse/core": ["@vueuse/core@15.0.0", "", { "dependencies": { "@types/web-bluetooth": "^0.0.21", "@vueuse/metadata": "15.0.0", "@vueuse/shared": "15.0.0" }, "peerDependencies": { "vue": "^3.5.0" } }, "sha512-Zv67h5mrk7YHDJsRObx+DXaCBz6RKBUpxqLesJ+3xZNPG6yuQs7ja7kg3veFrrouYLWAqydQ7CwGEbLVxB43Ng=="],
 
