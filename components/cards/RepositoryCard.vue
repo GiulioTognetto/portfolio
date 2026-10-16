@@ -3,19 +3,20 @@
     class="group relative block h-80 w-[min(92vw,640px)] select-none text-left cursor-pointer"
     @keydown.esc="isOpen = false"
     :aria-expanded="isOpen"
-    :aria-label="`${isOpen ? 'Nascondi' : 'Mostra'} i dettagli di ${repo.name}`"
+    :aria-label="`${isOpen ? 'Nascondi' : 'Mostra'} i dettagli di ${displayTitle}`"
     @click="toggle"
   >
-    <div class="absolute inset-0 overflow-hidden rounded-2xl border-3 border-neutral-200/80 dark:border-neutral-600/80 bg-neutral-900 duration-300">
+    <div class="absolute inset-0 overflow-hidden rounded-2xl border-3 border-primary-300 dark:border-primary-600 bg-neutral-900 duration-300">
       <!-- Immagine: a riposo riempie la card, quando è aperta si riduce a rettangolo sopra il pannello -->
       <div
         class="absolute inset-x-0 top-0 overflow-hidden transition-[height] duration-500 ease-out"
         :class="isOpen ? 'h-[36%]' : 'h-full'"
       >
         <NuxtImg
-          :src="hasImageError ? fallbackImage : `https://opengraph.githubassets.com/1/${repo.full_name}`"
-          :alt="repo.name"
-          class="h-full w-full object-cover"
+          :src="thumbnailSrc"
+          :alt="displayTitle"
+          class="h-full w-full object-cover transition-transform duration-500 ease-out transform-gpu backface-hidden"
+          :class="{ 'group-hover:scale-105': !isOpen }"
           loading="lazy"
           @error="hasImageError = true"
         />
@@ -34,7 +35,7 @@
         <!-- Nome + tag (licenza, stelle, fork, dimensione) -->
         <div class="pointer-events-auto flex shrink-0 flex-wrap items-center gap-x-2 gap-y-1">
           <h3 class="min-w-0 max-w-full truncate text-xl font-bold leading-tight text-white">
-            {{ repo.name }}
+            {{ displayTitle }}
           </h3>
 
           <UBadge v-if="licenseLabel" variant="subtle" size="md" class="bg-white/20 dark:bg-neutral-800/60 backdrop-blur-md text-white dark:text-neutral-200 border-0">
@@ -56,7 +57,7 @@
         </div>
 
         <p class="line-clamp-2 text-sm leading-relaxed text-white/80">
-          {{ repo.description || 'Nessuna descrizione disponibile.' }}
+          {{ displayDescription }}
         </p>
 
         <!-- Topics troncati con Tooltip NuxtUI -->
@@ -102,7 +103,7 @@
         <!-- Nome + tag -->
         <div class="flex shrink-0 flex-wrap items-center gap-x-2 gap-y-1">
           <h3 class="min-w-0 max-w-full truncate text-lg font-bold leading-tight text-neutral-900 dark:text-white">
-            {{ repo.name }}
+            {{ displayTitle }}
           </h3>
 
           <UBadge v-if="licenseLabel" color="neutral" variant="subtle" size="md">
@@ -124,7 +125,7 @@
         </div>
 
         <p class="line-clamp-2 shrink-0 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 flex grow">
-          {{ repo.description || 'Nessuna descrizione disponibile.' }}
+          {{ displayDescription }}
         </p>
 
         <!-- Sezione Linguaggi (se in caricamento o con dati) -->
@@ -177,26 +178,43 @@
         </div>
       </div>
 
-      <NuxtLink
-        v-if="!repo.private"
-        :to="repo.html_url"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Apri repository su GitHub"
-        class="absolute right-3 top-3 z-10 flex size-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-primary-500"
-      >
-        <UIcon name="i-lucide-external-link" class="size-4" />
-      </NuxtLink>
+      <div class="absolute right-3 top-3 z-10 flex flex-row items-center gap-2">
+        <!-- Pulsante Sito Web (se configurato) -->
+        <NuxtLink
+          v-if="configWebsite"
+          :to="configWebsite"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apri il sito web del progetto"
+          class="flex size-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-primary-500"
+          @click.stop
+        >
+          <UIcon name="i-lucide-globe" class="size-4" />
+        </NuxtLink>
+
+        <!-- Pulsante GitHub (se la repo non è privata) -->
+        <NuxtLink
+          v-if="!repo.private"
+          :to="repo.html_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apri repository su GitHub"
+          class="flex size-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-primary-500"
+          @click.stop
+        >
+          <UIcon name="i-lucide-external-link" class="size-4" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { Repository } from '~/types/repository'
+import { computed, ref, reactive, onMounted } from 'vue'
+import type { EnrichedRepository, RepositoryPortfolioConfig } from '~/types/repository'
 
-const { repo } = defineProps<{
-  repo: Repository
+const props = defineProps<{
+  repo: EnrichedRepository
 }>()
 
 const MAX_TOPICS = 5
@@ -208,23 +226,74 @@ const languages = ref<Record<string, number>>({})
 const languagesPending = ref(false)
 const languagesError = ref(false)
 
+// Stato reattivo per la configurazione custom del portfolio
+const portfolioConfig = reactive<RepositoryPortfolioConfig>({})
+const configLoaded = ref(false)
+
 const languageColors = ['bg-primary-500', 'bg-sky-500', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-500']
 
 const numberFormatter = new Intl.NumberFormat('it-IT', { notation: 'compact', maximumFractionDigits: 1 })
 const formatCount = (value?: number) => numberFormatter.format(value ?? 0)
 
-const topics = computed(() => (repo.topics ?? []).slice(0, MAX_TOPICS))
-const extraTopics = computed(() => Math.max((repo.topics?.length ?? 0) - MAX_TOPICS, 0))
-const hiddenTopics = computed(() => (repo.topics ?? []).slice(MAX_TOPICS))
+// Proprietà calcolate reattive basate sulla configurazione con fallback ai dati GitHub
+const displayTitle = computed(() => portfolioConfig.title || props.repo.name)
+const displayDescription = computed(() => portfolioConfig.description ?? props.repo.description ?? 'Nessuna descrizione disponibile.')
+const configWebsite = computed(() => portfolioConfig.website || null)
+
+const thumbnailSrc = computed(() => {
+  if (hasImageError.value) return fallbackImage
+  
+  const customThumb = portfolioConfig.thumbnail_url
+  
+  if (customThumb) {
+    if (customThumb.startsWith('http://') || customThumb.startsWith('https://')) {
+      return customThumb
+    }
+    
+    const owner = props.repo.owner.login
+    const branch = props.repo.default_branch || 'main'
+    const cleanPath = customThumb.startsWith('/') ? customThumb.slice(1) : customThumb
+
+    const imagePath = `https://raw.githubusercontent.com/${owner}/${props.repo.name}/${branch}/${cleanPath}`;
+
+    console.log(`Using custom thumbnail for ${props.repo.full_name}: ${imagePath}`)
+    
+    return imagePath
+  }
+  
+  return `https://opengraph.githubassets.com/1/${props.repo.full_name}`
+})
+
+const topics = computed(() => {
+  const customTech = portfolioConfig.technologies
+  if (customTech && customTech.length > 0) {
+    return customTech.slice(0, MAX_TOPICS)
+  }
+  return (props.repo.topics ?? []).slice(0, MAX_TOPICS)
+})
+
+const extraTopics = computed(() => {
+  const customTech = portfolioConfig.technologies
+  const total = customTech && customTech.length > 0 ? customTech.length : (props.repo.topics?.length ?? 0)
+  return Math.max(total - MAX_TOPICS, 0)
+})
+
+const hiddenTopics = computed(() => {
+  const customTech = portfolioConfig.technologies
+  if (customTech && customTech.length > 0) {
+    return customTech.slice(MAX_TOPICS)
+  }
+  return (props.repo.topics ?? []).slice(MAX_TOPICS)
+})
 
 const licenseLabel = computed(() => {
-  const id = repo.license?.spdx_id
+  const id = props.repo.license?.spdx_id
   if (id && id !== 'NOASSERTION') return id
-  return repo.license?.name ?? null
+  return props.repo.license?.name ?? null
 })
 
 const repositorySize = computed(() => {
-  const kb = repo.size ?? 0
+  const kb = props.repo.size ?? 0
   if (kb < 1024) {
     return `${kb} KB`
   }
@@ -242,14 +311,35 @@ const languageBreakdown = computed(() => {
     .slice(0, 5)
 })
 
+// Funzione per caricare il file JSON di configurazione dalla repository
+const loadPortfolioConfig = async () => {
+  if (configLoaded.value || !props.repo.portfolioConfigUrl) return
+
+  try {
+    const rawData = await $fetch<any>(props.repo.portfolioConfigUrl)
+    
+    // Se GitHub restituisce il JSON come stringa (test/plain), lo parsiamo
+    const configData = typeof rawData === 'string' ? JSON.parse(rawData) : rawData
+
+    if (configData) {
+      Object.assign(portfolioConfig, configData)
+      console.log('Parsed and assigned portfolio config:', portfolioConfig)
+    }
+  } catch (error: any) {
+    console.warn(`Error loading portfolio config for ${props.repo.full_name}:`, error)
+  } finally {
+    configLoaded.value = true
+  }
+}
+
 const loadLanguages = async () => {
-  if (Object.keys(languages.value).length || languagesPending.value || !repo.languages_url) return
+  if (Object.keys(languages.value).length || languagesPending.value || !props.repo.languages_url) return
 
   languagesPending.value = true
   languagesError.value = false
 
   try {
-    languages.value = await $fetch<Record<string, number>>(repo.languages_url)
+    languages.value = await $fetch<Record<string, number>>(props.repo.languages_url)
   } catch {
     languagesError.value = true
   } finally {
@@ -259,6 +349,12 @@ const loadLanguages = async () => {
 
 const toggle = () => {
   isOpen.value = !isOpen.value
-  if (isOpen.value) loadLanguages()
+  if (isOpen.value) {
+    loadLanguages()
+  }
 }
+
+onMounted(() => {
+  loadPortfolioConfig()
+})
 </script>

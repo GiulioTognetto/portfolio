@@ -120,3 +120,15 @@ export interface Repository {
   default_branch: string
   permissions?: GitHubPermissions
 }
+
+export interface EnrichedRepository extends Repository {
+  portfolioConfigUrl?: string
+}
+
+export interface RepositoryPortfolioConfig {
+  title?: string,
+  description?: string | null,
+  thumbnail_url?: string | null,
+  technologies?: string[] | null,
+  website?: string | null
+}

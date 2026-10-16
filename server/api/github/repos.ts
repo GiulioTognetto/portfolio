@@ -1,4 +1,27 @@
-import type { Repository } from '~/types/repository'
+import type { EnrichedRepository, Repository } from '~/types/repository'
+
+
+async function enrichRepository(repo: Repository, token: string): Promise<EnrichedRepository> {
+  const branch = repo.default_branch || 'main'
+  const portfolioConfigUrl = `https://raw.githubusercontent.com/${repo.full_name}/${branch}/.github/portfolio.config.json`
+
+  try {
+    await $fetch(portfolioConfigUrl, {
+      method: 'HEAD',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'User-Agent': `Portfolio (giuliotognetto.dev)`
+      }
+    })
+
+    return {
+      ...repo,
+      portfolioConfigUrl
+    }
+  } catch {
+    return { ...repo, portfolioConfigUrl: undefined }
+  }
+}
 
 export default defineCachedEventHandler(async (event) => {
   const config = useRuntimeConfig()
@@ -6,14 +29,13 @@ export default defineCachedEventHandler(async (event) => {
   const cloudflareEnv = event.context.cloudflare?.env as Record<string, any> | undefined
   
   const token = config.githubToken || cloudflareEnv?.GITHUB_TOKEN || process.env.GITHUB_TOKEN
-  const username = config.githubUsername || cloudflareEnv?.GITHUB_USERNAME || process.env.GITHUB_USERNAME
 
   if (!token) {
     throw createError({ statusCode: 500, statusMessage: 'GitHub token non configurato nelle variabili d\'ambiente' })
   }
 
   try {
-    const repos: Repository[] = await $fetch('https://api.github.com/user/repos', {
+    const repos: Repository[] = await $fetch<Repository[]>('https://api.github.com/user/repos', {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
@@ -26,7 +48,11 @@ export default defineCachedEventHandler(async (event) => {
       }
     })
 
-    return repos
+    const enrichedRepos = await Promise.all(repos.map<Promise<EnrichedRepository>>(async (repo) => await enrichRepository(repo, token)))
+
+    console.log(enrichedRepos)
+
+    return enrichedRepos
   } catch (error: any) {
     throw createError({
       statusCode: error.statusCode || 500,

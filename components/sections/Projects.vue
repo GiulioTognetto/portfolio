@@ -40,7 +40,7 @@
         class="w-full mx-auto px-4 user-select-none"
         :ui="{
           dots: 'flex justify-start gap-2 mt-6 ml-10',
-          dot: 'w-6 h-1',
+          dot: 'w-6 h-1 data-[state=active]:bg-primary-500',
           item: 'basis-[92%] transition-opacity basis-full sm:basis-[540px] lg:basis-[560px] px-2 py-4',
           container: 'items-center',
         }"
@@ -61,11 +61,11 @@
 </template>
 
 <script setup lang="ts">
-import type { Repository } from '~/types/repository'
+import type { EnrichedRepository } from '~/types/repository'
 const { t } = useI18n()
 
 const LazyRepositoryCard = defineAsyncComponent(() => import('~/components/cards/RepositoryCard.vue'))
-const { data: allRepos, pending, error } = await useFetch<Repository[]>('/api/github/repos')
+const { data: allRepos, pending, error } = await useFetch<EnrichedRepository[]>('/api/github/repos')
 
 const featuredRepoNames = [
   'portfolio',
