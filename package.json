@@ -22,7 +22,7 @@
     "@nuxtjs/robots": "6.2.4",
     "@nuxtjs/seo": "^5.3.16",
     "@nuxtjs/sitemap": "8.6.1",
-    "@takumi-rs/core": "^2.15.0",
+    "@takumi-rs/core": "^2.16.2",
     "@takumi-rs/wasm": "^2.15.1",
     "@tresjs/cientos": "^5.9.3",
     "@tresjs/core": "^5.9.2",
