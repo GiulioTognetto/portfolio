@@ -238,7 +238,16 @@ const formatCount = (value?: number) => numberFormatter.format(value ?? 0)
 // Proprietà calcolate reattive basate sulla configurazione con fallback ai dati GitHub
 const displayTitle = computed(() => portfolioConfig.title || props.repo.name)
 const displayDescription = computed(() => portfolioConfig.description ?? props.repo.description ?? 'Nessuna descrizione disponibile.')
-const websiteUrl = computed(() => portfolioConfig.website || props.repo.homepage || null)
+const websiteUrl = computed(() => {
+  const site = portfolioConfig.website || props.repo.homepage || null
+  if (!site) return null
+
+  if (!site.startsWith('http://') && !site.startsWith('https://')) {
+    return `https://${site}`
+  }
+  
+  return site
+})
 
 const thumbnailSrc = computed(() => {
   if (hasImageError.value) return fallbackImage
