@@ -181,8 +181,8 @@
       <div class="absolute right-3 top-3 z-10 flex flex-row items-center gap-2">
         <!-- Pulsante Sito Web (se configurato) -->
         <NuxtLink
-          v-if="configWebsite"
-          :to="configWebsite"
+          v-if="websiteUrl"
+          :to="websiteUrl"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Apri il sito web del progetto"
@@ -238,7 +238,7 @@ const formatCount = (value?: number) => numberFormatter.format(value ?? 0)
 // Proprietà calcolate reattive basate sulla configurazione con fallback ai dati GitHub
 const displayTitle = computed(() => portfolioConfig.title || props.repo.name)
 const displayDescription = computed(() => portfolioConfig.description ?? props.repo.description ?? 'Nessuna descrizione disponibile.')
-const configWebsite = computed(() => portfolioConfig.website || null)
+const websiteUrl = computed(() => portfolioConfig.website || props.repo.homepage || null)
 
 const thumbnailSrc = computed(() => {
   if (hasImageError.value) return fallbackImage
